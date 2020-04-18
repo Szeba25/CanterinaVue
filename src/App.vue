@@ -5,20 +5,20 @@
             <hr>
         </div>
         <div class="main-menu">
-            <router-link to="/"><p class="main-menu-point">Főoldal</p></router-link>
+            <router-link to="/"><p class="main-menu-point">{{ $t("menu.main") }}</p></router-link>
             <div class="dropdown">
-                <router-link to="/"><p class="main-menu-point">Rólunk</p></router-link>
+                <router-link to="/"><p class="main-menu-point">{{ $t("menu.about") }}</p></router-link>
                 <div class="dropdown-content">
-                    <router-link to="/"><p class="dropdown-menu-point">Kórus</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">Tagok</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">Karnagyok</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">Link 1</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">Link 2</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">Link 3</p></router-link>
                 </div>
             </div>
-            <router-link to="/"><p class="main-menu-point">Események</p></router-link>
-            <router-link to="/"><p class="main-menu-point">Albumok</p></router-link>
-            <router-link to="/"><p class="main-menu-point">Galéria</p></router-link>
-            <router-link to="/"><p class="main-menu-point">Közérdekű</p></router-link>
-            <router-link to="/"><p class="main-menu-point">Kapcsolat</p></router-link>
+            <router-link to="/"><p class="main-menu-point">{{ $t("menu.events") }}</p></router-link>
+            <router-link to="/"><p class="main-menu-point">{{ $t("menu.albums") }}</p></router-link>
+            <router-link to="/"><p class="main-menu-point">{{ $t("menu.gallery") }}</p></router-link>
+            <router-link to="/"><p class="main-menu-point">{{ $t("menu.public") }}</p></router-link>
+            <router-link to="/"><p class="main-menu-point">{{ $t("menu.contact") }}</p></router-link>
         </div>
         <div>
             <hr>
@@ -88,11 +88,11 @@ hr {
 
 .main-menu {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto;
-    grid-gap: 0px;
+    grid-template-columns: min-content min-content min-content min-content min-content min-content min-content;
+    grid-gap: 20px;
     padding: 0px;
     text-align: center;
-    margin: 0px 100px;
+    margin: auto;
 }
 
 .main-menu-point {
@@ -113,7 +113,6 @@ hr {
 .dropdown-content {
     display: none;
     position: absolute;
-    transform: translateX(15px);
     background-color: white;
     min-width: 100px;
     text-align: left;
