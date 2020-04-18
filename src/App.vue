@@ -1,17 +1,21 @@
 <template>
     <div class="main-layout">
         <div>
+            <div class="main-lang-container">
+                <img class="main-lang-item" src="@/assets/hu.png" @click="changeLanguage('hu')">
+                <img class="main-lang-item" src="@/assets/en.png" @click="changeLanguage('en')">
+            </div>
             <img class="main-logo" src="@/assets/logo.png">
             <hr>
         </div>
         <div class="main-menu">
             <router-link to="/"><p class="main-menu-point">{{ $t("menu.main") }}</p></router-link>
             <div class="dropdown">
-                <router-link to="/"><p class="main-menu-point">{{ $t("menu.about") }}</p></router-link>
+                <router-link to="/"><p class="main-menu-point">{{ $t("menu.about.main") }}</p></router-link>
                 <div class="dropdown-content">
-                    <router-link to="/"><p class="dropdown-menu-point">Link 1</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">Link 2</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">Link 3</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.members") }}</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.singers") }}</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.conductors") }}</p></router-link>
                 </div>
             </div>
             <router-link to="/"><p class="main-menu-point">{{ $t("menu.events") }}</p></router-link>
@@ -29,7 +33,13 @@
 
 <script>
 export default {
-    name: 'App'
+    name: 'App',
+
+    methods: {
+        changeLanguage(code) {
+            this.$i18n.locale = code;
+        }
+    }
 }
 </script>
 
@@ -71,7 +81,22 @@ hr {
     margin: 5px 5px;
 }
 
+.main-lang-container {
+    float: right;
+}
+
+.main-lang-item {
+    width: 40px;
+    height: 20px;
+    margin: 5px 5px 0px 0px;
+}
+
+.main-lang-item:hover {
+    cursor: pointer;
+}
+
 .main-logo {
+    clear: both;
     display: block;
     margin: 10px auto;
 }
@@ -88,7 +113,13 @@ hr {
 
 .main-menu {
     display: grid;
-    grid-template-columns: min-content min-content min-content min-content min-content min-content min-content;
+    grid-template-columns: min-content 
+                           min-content 
+                           min-content 
+                           min-content 
+                           min-content 
+                           min-content 
+                           min-content;
     grid-gap: 20px;
     padding: 0px;
     text-align: center;

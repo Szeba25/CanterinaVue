@@ -38,23 +38,43 @@ const messages = {
     en: {
         menu: {
             main: "Main",
-            about: "About",
+            about: {
+                main: "About",
+                members: "Members",
+                singers: "Singers",
+                conductors: "Conductors"
+            },
             events: "Events",
             albums: "Albums",
             gallery: "Gallery",
             public: "Public",
             contact: "Contact"
+        },
+        tmp: {
+            news1: "Actual news 1",
+            news2: "Actual news 2",
+            news3: "Actual news 3"
         }
     },
     hu: {
         menu: {
             main: "Főoldal",
-            about: "Rólunk",
+            about: {
+                main: "Rólunk",
+                members: "Tagok",
+                singers: "Énekesek",
+                conductors: "Karnagyok"
+            },
             events: "Események",
             albums: "Albumok",
             gallery: "Galéria",
             public: "Közérdekű",
             contact: "Kapcsolat"
+        },
+        tmp: {
+            news1: "Aktuális hír 1",
+            news2: "Aktuális hír 2",
+            news3: "Aktuális hír 3"
         }
     }
 };
