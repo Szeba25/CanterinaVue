@@ -6,7 +6,14 @@
         </div>
         <div class="main-menu">
             <router-link to="/"><p class="main-menu-point">Főoldal</p></router-link>
-            <router-link to="/"><p class="main-menu-point">Rólunk</p></router-link>
+            <div class="dropdown">
+                <router-link to="/"><p class="main-menu-point">Rólunk</p></router-link>
+                <div class="dropdown-content">
+                    <router-link to="/"><p class="main-menu-point">Kórus</p></router-link>
+                    <router-link to="/"><p class="main-menu-point">Tagok</p></router-link>
+                    <router-link to="/"><p class="main-menu-point">Karnagyok</p></router-link>
+                </div>
+            </div>
             <router-link to="/"><p class="main-menu-point">Események</p></router-link>
             <router-link to="/"><p class="main-menu-point">Albumok</p></router-link>
             <router-link to="/"><p class="main-menu-point">Galéria</p></router-link>
@@ -65,7 +72,7 @@ hr {
     grid-gap: 0px;
     padding: 0px;
     margin: 20px;
-    background-color: #ffffff;
+    background-color: white;
     border-radius: 5px;
 }
 
@@ -87,5 +94,25 @@ hr {
 
 .main-menu-point:hover {
     color: #c7493a;
+}
+
+.dropdown {
+    display: inline-block;    
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 100px;
+    text-align: left;
+    border: 1px solid #917164;
+    box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
+    padding: 0px 6px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 </style>
