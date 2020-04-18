@@ -3,7 +3,7 @@
         <div>
             <img class="mainpage-picture picture-spacing" src="@/assets/example.png">
             <br>
-            <a target="_blank" href="https://www.facebook.com/canterina.zeg">
+            <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
                 <img class="social-media-link" src="@/assets/fb.png">
             </a>
             <a target="_blank" href="https://www.youtube.com">
