@@ -9,9 +9,9 @@
             <div class="dropdown">
                 <router-link to="/"><p class="main-menu-point">Rólunk</p></router-link>
                 <div class="dropdown-content">
-                    <router-link to="/"><p class="main-menu-point">Kórus</p></router-link>
-                    <router-link to="/"><p class="main-menu-point">Tagok</p></router-link>
-                    <router-link to="/"><p class="main-menu-point">Karnagyok</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">Kórus</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">Tagok</p></router-link>
+                    <router-link to="/"><p class="dropdown-menu-point">Karnagyok</p></router-link>
                 </div>
             </div>
             <router-link to="/"><p class="main-menu-point">Események</p></router-link>
@@ -22,6 +22,7 @@
         </div>
         <div>
             <hr>
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -54,6 +55,15 @@ a {
 a:visited {
     color: #917164;
     text-decoration: none;
+}
+
+a, p, h1, h2, h3 {
+    font-family: 'Segoe UI';
+    color: #24252d;
+}
+
+p {
+    margin: 0px 5px;
 }
 
 hr {
@@ -97,22 +107,48 @@ hr {
 }
 
 .dropdown {
-    display: inline-block;    
+    display: inline-block;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+    transform: translateX(15px);
     background-color: white;
     min-width: 100px;
     text-align: left;
     border: 1px solid #917164;
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
-    padding: 0px 6px;
     z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.dropdown-menu-point {
+    font-size: 18px;
+    margin: 0px;
+    padding: 6px;
+    transition: 0.5s;
+    font-family: 'Segoe UI';
+}
+
+.dropdown-menu-point:hover {
+    color: #c7493a;
+    background-color: #c7483a2d;
+}
+
+.social-media-link {
+    margin: 0px 0px 0px 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.social-media-link:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 3px #c7483a9a;
 }
 </style>
