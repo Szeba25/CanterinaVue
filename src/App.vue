@@ -5,7 +5,7 @@
                 <img class="main-lang-item" src="@/assets/hu.png" @click="changeLanguage('hu')">
                 <img class="main-lang-item" src="@/assets/en.png" @click="changeLanguage('en')">
             </div>
-            <img class="main-logo" src="@/assets/logo.png">
+            <div class="main-logo"></div>
             <hr>
         </div>
         <div class="main-menu">
@@ -86,6 +86,8 @@ hr {
 }
 
 .main-lang-item {
+    display: block;
+    float: right;
     width: 40px;
     height: 20px;
     margin: 5px 5px 0px 0px;
@@ -96,9 +98,11 @@ hr {
 }
 
 .main-logo {
-    clear: both;
     display: block;
-    margin: 10px auto;
+    background-image: url("assets/logo_2.png");
+    width: 380px;
+    height: 100px;
+    margin: auto;
 }
 
 .main-layout {
