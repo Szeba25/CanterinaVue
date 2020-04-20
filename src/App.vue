@@ -50,7 +50,7 @@ html {
 
 body {
     margin: 0px auto;
-    background-color: #24252d;
+    background-color: #0f0c0c;
     max-width: 1000px;
 }
 
@@ -59,17 +59,17 @@ body:fater {
 }
 
 a {
-    color: #917164;
+    color: #91646e;
     text-decoration: none;
 }
 a:visited {
-    color: #917164;
+    color: #91646e;
     text-decoration: none;
 }
 
 a, p, h1, h2, h3 {
     font-family: 'Segoe UI';
-    color: #24252d;
+    color: #0f0c0c;
 }
 
 p {
@@ -77,7 +77,7 @@ p {
 }
 
 hr {
-    border-top: 1px solid #a33327;
+    border-top: 1px solid #a51c0d;
     margin: 5px 5px;
 }
 
@@ -138,7 +138,7 @@ hr {
 }
 
 .main-menu-point:hover {
-    color: #c7493a;
+    color: #e72a15;
 }
 
 .dropdown {
@@ -151,7 +151,7 @@ hr {
     background-color: white;
     min-width: 100px;
     text-align: left;
-    border: 1px solid #917164;
+    border: 1px solid #91646e;
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -169,7 +169,7 @@ hr {
 }
 
 .dropdown-menu-point:hover {
-    color: #c7493a;
+    color: #e72a15;
     background-color: #c7483a2d;
 }
 

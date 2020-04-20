@@ -42,7 +42,7 @@ export default {
 }
 
 .mainpage-title {
-    color: #a33327;
+    color: #a51c0d;
     margin: 5px 0px 10px 0px;
 }
 
@@ -52,25 +52,25 @@ export default {
 }
 
 .mainpage-news:hover .mainpage-news-txt {
-    color: #c7493a;
+    color: #e72a15;
 }
 
 .mainpage-news-img {
     border-radius: 5px;
-    background-color: #a33327;
+    background-color: #a51c0d;
     width: 320px;
     height: 100px;
 }
 
 .mainpage-news-txt {
     margin: 0px 0px 10px 0px;
-    color: #646f62;
+    color: #83837c;
     transition: 0.3s;
 }
 
 .mainpage-picture {
     object-fit: cover;
-    border: 1px solid #a33327;
+    border: 1px solid #a51c0d;
     border-radius: 5px;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
     width: 600px;
