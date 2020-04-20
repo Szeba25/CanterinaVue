@@ -99,7 +99,7 @@ hr {
 
 .main-logo {
     display: block;
-    background-image: url("assets/logo_2.png");
+    background-image: url("assets/logo.png");
     width: 380px;
     height: 100px;
     margin: auto;

@@ -12,15 +12,15 @@
         </div>
         <div>
             <div class="mainpage-news">
-                <img class="mainpage-news-img" src="@/assets/actual.png">
+                <div class="mainpage-news-img"></div>
                 <p class="mainpage-news-txt">{{ $t("tmp.news1") }}</p>
             </div>
             <div class="mainpage-news">
-                <img class="mainpage-news-img" src="@/assets/actual.png">
+                <div class="mainpage-news-img"></div>
                 <p class="mainpage-news-txt">{{ $t("tmp.news2") }}</p>
             </div>
             <div class="mainpage-news">
-                <img class="mainpage-news-img" src="@/assets/actual.png">
+                <div class="mainpage-news-img"></div>
                 <p class="mainpage-news-txt">{{ $t("tmp.news3") }}</p>
             </div>
         </div>
@@ -57,6 +57,9 @@ export default {
 
 .mainpage-news-img {
     border-radius: 5px;
+    background-color: #a33327;
+    width: 320px;
+    height: 100px;
 }
 
 .mainpage-news-txt {
