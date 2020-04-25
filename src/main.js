@@ -5,8 +5,13 @@ import VueI18n from "vue-i18n";
 
 import App from "./App.vue";
 import Main from "./components/Main.vue";
+import About from "./components/About.vue";
+import Events from "./components/Events.vue";
+import Albums from "./components/Albums.vue";
+import Gallery from "./components/Gallery.vue";
+import Public from "./components/Public.vue";
+import Contact from "./components/Contact.vue";
 import ForMembers from "./components/ForMembers.vue";
-
 import Login from "./components/Login.vue";
 
 Vue.use(VueRouter);
@@ -17,6 +22,12 @@ Vue.config.productionTip = false;
 
 const routes = [
     { name: "Main", path: "/", components: { default: Main } },
+    { name: "About", path: "/about", components: { default: About } },
+    { name: "Events", path: "/events", components: { default: Events } },
+    { name: "Albums", path: "/albums", components: { default: Albums } },
+    { name: "Gallery", path: "/gallery", components: { default: Gallery } },
+    { name: "Public", path: "/public", components: { default: Public } },
+    { name: "Contact", path: "/contact", components: { default: Contact } },
     { name: "ForMembers", path: "/for_members", components: {default: ForMembers} },
     { name: "Login", path: "/login", components: {default: Login} }
 ];
@@ -32,7 +43,7 @@ router.beforeEach((to, from, next) => {
     if (to.name === "ForMembers") {
         setTimeout(() => {
             next({ name: 'Login' });
-        }, 600);
+        }, 200);
     } else {
         next();
     }
@@ -74,7 +85,8 @@ const messages = {
         login: {
             title: "Welcome!",
             username: "Username",
-            password: "Password"
+            password: "Password",
+            signIn: "Sign in"
         }
     },
     hu: {
@@ -101,7 +113,8 @@ const messages = {
         login: {
             title: "Üdvözöljük!",
             username: "Felhasználónév",
-            password: "Jelszó"
+            password: "Jelszó",
+            signIn: "Bejelentkezés"
         }
     }
 };

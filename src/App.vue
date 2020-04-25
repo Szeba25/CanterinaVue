@@ -9,21 +9,65 @@
             <hr>
         </div>
         <div class="main-menu">
-            <router-link to="/"><p v-bind:class="{ 'main-menu-active': isActive('Main') }" class="main-menu-point">{{ $t("menu.main") }}</p></router-link>
+            <router-link to="/">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Main') }">
+                    {{ $t("menu.main") }}
+                </p>
+            </router-link>
             <div class="dropdown">
-                <router-link to="/"><p class="main-menu-point">{{ $t("menu.about.main") }}</p></router-link>
+                <router-link to="/about">
+                    <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('About') }">
+                        {{ $t("menu.about.main") }}
+                    </p>
+                </router-link>
                 <div class="dropdown-content">
-                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.choir") }}</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.members") }}</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.conductors") }}</p></router-link>
+                    <router-link to="/about">
+                        <p class="dropdown-menu-point">
+                            {{ $t("menu.about.choir") }}
+                        </p>
+                    </router-link>
+                    <router-link to="/about">
+                        <p class="dropdown-menu-point">
+                            {{ $t("menu.about.members") }}
+                        </p>
+                    </router-link>
+                    <router-link to="/about">
+                        <p class="dropdown-menu-point">
+                            {{ $t("menu.about.conductors") }}
+                        </p>
+                    </router-link>
                 </div>
             </div>
-            <router-link to="/"><p class="main-menu-point">{{ $t("menu.events") }}</p></router-link>
-            <router-link to="/"><p class="main-menu-point">{{ $t("menu.albums") }}</p></router-link>
-            <router-link to="/"><p class="main-menu-point">{{ $t("menu.gallery") }}</p></router-link>
-            <router-link to="/"><p class="main-menu-point">{{ $t("menu.public") }}</p></router-link>
-            <router-link to="/"><p class="main-menu-point">{{ $t("menu.contact") }}</p></router-link>
-            <router-link to="/for_members"><p  v-bind:class="{ 'main-menu-active': isActive('ForMembers', 'Login') }" class="main-menu-point">{{ $t("menu.forMembers") }}</p></router-link>
+            <router-link to="/events">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Events') }">
+                    {{ $t("menu.events") }}
+                </p>
+            </router-link>
+            <router-link to="/albums">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Albums') }">
+                    {{ $t("menu.albums") }}
+                </p>
+            </router-link>
+            <router-link to="/gallery">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Gallery') }">
+                    {{ $t("menu.gallery") }}
+                </p>
+            </router-link>
+            <router-link to="/public">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Public') }">
+                    {{ $t("menu.public") }}
+                </p>
+            </router-link>
+            <router-link to="/contact">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Contact') }">
+                    {{ $t("menu.contact") }}
+                </p>
+            </router-link>
+            <router-link to="/for_members">
+                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('ForMembers', 'Login') }">
+                    {{ $t("menu.forMembers") }}
+                </p>
+            </router-link>
         </div>
         <div>
             <hr>
@@ -89,6 +133,52 @@ p {
 hr {
     border-top: 1px solid #a51c0d;
     margin: 5px 5px;
+}
+
+input[type=button] {
+    background-color: #a51c0d;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    margin: 2px 4px;
+    text-decoration: none;
+    cursor: pointer;
+    background-position: center;
+    transition: background 0.8s;
+}
+
+input[type=button]:focus {
+    outline: 1px solid #91646e;
+}
+
+input[type=button]:hover {
+    background: #e72a15 radial-gradient(circle, transparent 1%, #e72a15 1%) center/15000%;
+}
+
+input[type=button]:active {
+    background-color: #ff6b5b;
+    background-size: 100%;
+    transition: background 0s;
+}
+
+input[type=text], input[type=password] {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid  #a51c0d;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    outline: none;
+    border: 1px solid #e72a15;
+}
+
+.centered-text {
+    text-align: center;
 }
 
 .main-lang-container {
