@@ -9,12 +9,12 @@
             <hr>
         </div>
         <div class="main-menu">
-            <router-link to="/"><p class="main-menu-point">{{ $t("menu.main") }}</p></router-link>
+            <router-link to="/"><p v-bind:class="{ 'main-menu-active': isActive('Main') }" class="main-menu-point">{{ $t("menu.main") }}</p></router-link>
             <div class="dropdown">
                 <router-link to="/"><p class="main-menu-point">{{ $t("menu.about.main") }}</p></router-link>
                 <div class="dropdown-content">
+                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.choir") }}</p></router-link>
                     <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.members") }}</p></router-link>
-                    <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.singers") }}</p></router-link>
                     <router-link to="/"><p class="dropdown-menu-point">{{ $t("menu.about.conductors") }}</p></router-link>
                 </div>
             </div>
@@ -23,6 +23,7 @@
             <router-link to="/"><p class="main-menu-point">{{ $t("menu.gallery") }}</p></router-link>
             <router-link to="/"><p class="main-menu-point">{{ $t("menu.public") }}</p></router-link>
             <router-link to="/"><p class="main-menu-point">{{ $t("menu.contact") }}</p></router-link>
+            <router-link to="/for_members"><p  v-bind:class="{ 'main-menu-active': isActive('ForMembers', 'Login') }" class="main-menu-point">{{ $t("menu.forMembers") }}</p></router-link>
         </div>
         <div>
             <hr>
@@ -33,11 +34,20 @@
 
 <script>
 export default {
-    name: 'App',
+    name: "App",
 
     methods: {
         changeLanguage(code) {
             this.$i18n.locale = code;
+        },
+
+        isActive(...names) {
+            var match = false;
+            names.forEach((name) => 
+                match = match || 
+                this.$router.currentRoute.name === name
+            );
+            return match;
         }
     }
 }
@@ -51,7 +61,7 @@ html {
 body {
     margin: 0px auto;
     background-color: #0f0c0c;
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 body:fater {
@@ -117,14 +127,14 @@ hr {
 
 .main-menu {
     display: grid;
-    grid-template-columns: min-content 
-                           min-content 
-                           min-content 
-                           min-content 
-                           min-content 
-                           min-content 
-                           min-content;
-    grid-gap: 20px;
+    grid-template-columns: auto 
+                           auto
+                           auto
+                           auto
+                           auto
+                           auto
+                           auto
+                           auto;
     padding: 0px;
     text-align: center;
     margin: auto;
@@ -132,13 +142,21 @@ hr {
 
 .main-menu-point {
     font-size: 18px;
-    margin: 6px;
+    padding: 6px 10px 6px 10px;
     transition: 0.5s;
     font-family: 'Segoe UI';
 }
 
 .main-menu-point:hover {
     color: #e72a15;
+    background-color: #c7483a2d;
+    border-radius: 5px;
+}
+
+.main-menu-active {
+    color: #e72a15;
+    background-color: #c7483a2d;
+    border-radius: 5px;
 }
 
 .dropdown {
@@ -148,6 +166,7 @@ hr {
 .dropdown-content {
     display: none;
     position: absolute;
+    margin: 0px 0px 0px 5px;
     background-color: white;
     min-width: 100px;
     text-align: left;
