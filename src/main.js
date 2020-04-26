@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Vuex from "vuex";
 import VueI18n from "vue-i18n";
+import Axios from "axios";
 
 import App from "./App.vue";
 import Main from "./components/Main.vue";
@@ -41,9 +42,17 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.name === "ForMembers") {
-        setTimeout(() => {
-            next({ name: 'Login' });
-        }, 200);
+        Axios.get("api/userinfo.php")
+            .then((response) => {
+                if (response.data !== "") {
+                    next();
+                } else {
+                    next({ name: 'Login' });
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     } else {
         next();
     }
@@ -86,7 +95,8 @@ const messages = {
             title: "Welcome!",
             username: "Username",
             password: "Password",
-            signIn: "Sign in"
+            signIn: "Sign in",
+            signOut: "Sign out"
         }
     },
     hu: {
@@ -114,7 +124,8 @@ const messages = {
             title: "Üdvözöljük!",
             username: "Felhasználónév",
             password: "Jelszó",
-            signIn: "Bejelentkezés"
+            signIn: "Bejelentkezés",
+            signOut: "Kijelentkezés"
         }
     }
 };

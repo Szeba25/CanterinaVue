@@ -3,26 +3,46 @@
         <h2 class="loginpage-title">{{ $t("login.title") }}</h2>
         <div class="loginpage-container">
             <p class="loginpage-label">{{ $t("login.username") }}</p>
-            <input type="text">
+            <input type="text" v-model="username">
             <p class="loginpage-label">{{ $t("login.password") }}</p>
-            <input type="password">
+            <input type="password" v-model="password">
             <input class="loginpage-button" type="button" v-bind:value="$t('login.signIn')" @click="login()">
         </div>
     </div>
 </template>
 
 <script>
+import Axios from "axios";
+
 export default {
     name: "Login",
 
+    data() {
+        return {
+            username: "",
+            password: ""
+        }
+    },
+
     methods: {
         login() {
-            setTimeout(() => {
-                console.log("Login...");
-                this.$router.push({name: "ForMembers"}).catch(() => {
-                    console.log("Unauthorized");
-                });
-            }, 400);
+            let formData = new FormData();
+            formData.append("username", this.username);
+            formData.append("password", this.password);
+
+            Axios.post("api/login.php", formData)
+                .then((response) => {
+                    if (response.data !== "") {
+                        this.$router.push({name: "ForMembers"}).catch(() => {
+                            console.log("Unauthorized");
+                        });
+                    } else {
+                        console.log("Unauthorized");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                }); 
         }
     }
 }
