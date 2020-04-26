@@ -283,7 +283,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .social-media-link {
-    margin: 0px 0px 0px 5px;
+    margin: 5px 5px 0px 0px;
     width: 45px;
     height: 45px;
     border-radius: 20px;

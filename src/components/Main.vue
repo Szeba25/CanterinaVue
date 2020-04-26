@@ -1,7 +1,7 @@
 <template>
     <div class="mainpage-layout">
-        <div>
-            <img class="mainpage-picture picture-spacing" src="@/assets/example.jpg">
+        <div class="mainpage-left-container">
+            <img class="mainpage-picture" src="@/assets/example.jpg">
             <br>
             <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
                 <img class="social-media-link" src="@/assets/fb.png">
@@ -37,8 +37,12 @@ export default {
 .mainpage-layout {
     display: grid;
     grid-template-columns: min-content min-content;
-    grid-gap: 15px;
+    grid-gap: 30px;
     min-height: 600px;
+}
+
+.mainpage-left-container {
+    margin: 0px 0px 0px 25px;
 }
 
 .mainpage-title {
@@ -58,8 +62,8 @@ export default {
 .mainpage-news-img {
     border-radius: 5px;
     background-color: #a51c0d;
-    width: 380px;
-    height: 100px;
+    width: 320px;
+    height: 120px;
 }
 
 .mainpage-news-txt {
@@ -73,11 +77,15 @@ export default {
     border: 1px solid #a51c0d;
     border-radius: 5px;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
-    width: 640px;
-    height: 440px;
+    width: 658px;
+    height: 398px;
 }
 
 .picture-spacing {
-    margin: 0px 5px 5px 8px;
+    margin: 0px 5px 5px 25px;
+}
+
+.mainpage-bottom-div {
+    margin: 0px 0px 0px 20px;
 }
 </style>
