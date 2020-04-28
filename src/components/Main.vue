@@ -38,7 +38,7 @@ export default {
     display: grid;
     grid-template-columns: min-content min-content;
     grid-gap: 30px;
-    margin: 0px 0px 25px 0px;
+    margin: 10px 0px 25px 0px;
 }
 
 .left-container {

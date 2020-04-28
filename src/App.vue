@@ -121,7 +121,7 @@ a:visited {
     text-decoration: none;
 }
 
-a, p, h1, h2, h3, h4 {
+a, p, h1, h2, h3, h4, figcaption {
     font-family: 'Segoe UI';
     color: #0f0c0c;
 }
