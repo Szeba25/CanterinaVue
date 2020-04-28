@@ -15,23 +15,23 @@
                 </p>
             </router-link>
             <div class="dropdown">
-                <router-link to="/about">
+                <router-link to="/about_choir">
                     <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('About') }">
                         {{ $t("menu.about.main") }}
                     </p>
                 </router-link>
                 <div class="dropdown-content">
-                    <router-link to="/about">
+                    <router-link to="/about_choir">
                         <p class="dropdown-menu-point">
                             {{ $t("menu.about.choir") }}
                         </p>
                     </router-link>
-                    <router-link to="/about">
+                    <router-link to="/about_members">
                         <p class="dropdown-menu-point">
                             {{ $t("menu.about.members") }}
                         </p>
                     </router-link>
-                    <router-link to="/about">
+                    <router-link to="/about_conductors">
                         <p class="dropdown-menu-point">
                             {{ $t("menu.about.conductors") }}
                         </p>

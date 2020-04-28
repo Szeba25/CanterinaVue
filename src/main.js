@@ -6,7 +6,9 @@ import Axios from "axios";
 
 import App from "./App.vue";
 import Main from "./components/Main.vue";
-import About from "./components/About.vue";
+import AboutChoir from "./components/AboutChoir.vue";
+import AboutMembers from "./components/AboutMembers.vue";
+import AboutConductors from "./components/AboutConductors.vue";
 import Events from "./components/Events.vue";
 import Albums from "./components/Albums.vue";
 import Gallery from "./components/Gallery.vue";
@@ -23,7 +25,9 @@ Vue.config.productionTip = false;
 
 const routes = [
     { name: "Main", path: "/", components: { default: Main } },
-    { name: "About", path: "/about", components: { default: About } },
+    { name: "AboutChoir", path: "/about_choir", components: { default: AboutChoir } },
+    { name: "AboutMembers", path: "/about_members", components: { default: AboutMembers } },
+    { name: "AboutConductors", path: "/about_conductors", components: { default: AboutConductors } },
     { name: "Events", path: "/events", components: { default: Events } },
     { name: "Albums", path: "/albums", components: { default: Albums } },
     { name: "Gallery", path: "/gallery", components: { default: Gallery } },
