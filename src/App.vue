@@ -121,13 +121,17 @@ a:visited {
     text-decoration: none;
 }
 
-a, p, h1, h2, h3 {
+a, p, h1, h2, h3, h4 {
     font-family: 'Segoe UI';
     color: #0f0c0c;
 }
 
+h2, h3, h4 {
+    margin: 15px 0px;
+}
+
 p {
-    margin: 0px 5px;
+    margin: 5px 0px;
 }
 
 hr {
@@ -179,6 +183,10 @@ input[type=text]:focus, input[type=password]:focus {
 
 .centered-text {
     text-align: center;
+}
+
+.justified-text {
+    text-align: justify;
 }
 
 .main-lang-container {
@@ -293,5 +301,12 @@ input[type=text]:focus, input[type=password]:focus {
 .social-media-link:hover {
     cursor: pointer;
     box-shadow: 0px 0px 10px 3px #c7483a9a;
+}
+
+.styled-picture {
+    object-fit: cover;
+    border: 1px solid #a51c0d;
+    border-radius: 5px;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
 }
 </style>

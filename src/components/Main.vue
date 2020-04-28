@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <div class="left-container">
-            <img class="main-picture" src="@/assets/example.jpg">
+            <img class="styled-picture main-picture" src="@/assets/example.jpg">
             <br>
             <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
                 <img class="social-media-link" src="@/assets/fb.png">
@@ -38,7 +38,7 @@ export default {
     display: grid;
     grid-template-columns: min-content min-content;
     grid-gap: 30px;
-    min-height: 600px;
+    margin: 0px 0px 25px 0px;
 }
 
 .left-container {
@@ -73,10 +73,6 @@ export default {
 }
 
 .main-picture {
-    object-fit: cover;
-    border: 1px solid #a51c0d;
-    border-radius: 5px;
-    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
     width: 658px;
     height: 398px;
 }
