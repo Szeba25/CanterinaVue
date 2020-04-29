@@ -1,8 +1,8 @@
 <template>
     <div class="layout">
         <div>
-            <img class="styled-picture choir-picture" src="@/assets/choir.jpg">
-            <div class="main-content" v-html="content"></div>
+            <img class="styled-picture choir-picture" v-bind:src="picture">
+            <div class="main-content" v-html="content[$i18n.locale]"></div>
         </div>
         <div class="audio-container">
             <figure class="audio-item" v-for="item in audio" :key="item.index">
@@ -12,30 +12,17 @@
                 </audio>
             </figure>
         </div>
-        <vue-editor v-model="content" :editor-toolbar="customToolbar"></vue-editor>
     </div>
 </template>
 
 <script>
-import { VueEditor } from "vue2-editor";
-
 export default {
     name: "AboutChoir",
 
-    components: {
-        VueEditor
-    },
-
     data() {
         return {
-            content: "",
-            
-            customToolbar: [
-                [{ 'header': [false, 1, 2, 3, 4, 5, 6] }],
-                ["bold", "italic", "underline"],
-                [{ list: "ordered" }, { list: "bullet" }],
-            ],
-
+            picture: "choir.jpg",
+            content: { en: "<h2>Test title</h2><p>Test content random text random text random text.</p><p>Another paragraph <i>in italic</i></p>", hu: "<h2>Teszt cím</h2><p>Tartalom, ez is tartalom, meg ez is.</p><p>Egy másik paragrafus, <i>dőlt betűs</i></p>" },
             audio: [
                 { en: { title: "Music 1" }, hu: { title: "1. Zene" }, src:"test.mp3" },
                 { en: { title: "Music 2" }, hu: { title: "2. Zene" }, src:"test.mp3" },
@@ -53,7 +40,7 @@ export default {
 
 .layout {
     display: grid;
-    grid-template-rows: min-content min-content min-content;
+    grid-template-rows: min-content min-content;
     grid-gap: 20px;
     margin: 10px 25px 25px 25px;
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <div class="left-container">
-            <img class="styled-picture main-picture" src="@/assets/example.jpg">
+            <img class="styled-picture main-picture" v-bind:src="mainPicture">
             <br>
             <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
                 <img class="social-media-link" src="@/assets/fb.png">
@@ -25,6 +25,7 @@ export default {
 
     data() {
         return {
+            mainPicture: "example.jpg",
             news: [
                 { en: { text: "News item 1" }, hu: { text: "Új hír 1" }, src: "", link: "" },
                 { en: { text: "News item 2" }, hu: { text: "Új hír 2" }, src: "", link: "" },
