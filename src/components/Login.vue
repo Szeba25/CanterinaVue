@@ -1,12 +1,12 @@
 <template>
-    <div class="loginpage-layout">
-        <h2 class="loginpage-title">{{ $t("login.title") }}</h2>
-        <div class="loginpage-container">
-            <p class="loginpage-label">{{ $t("login.username") }}</p>
+    <div class="layout">
+        <h2 class="title">{{ $t("login.title") }}</h2>
+        <div class="main-container">
+            <p class="login-label">{{ $t("login.username") }}</p>
             <input type="text" v-model="username">
-            <p class="loginpage-label">{{ $t("login.password") }}</p>
+            <p class="login-label">{{ $t("login.password") }}</p>
             <input type="password" v-model="password">
-            <input class="loginpage-button" type="button" v-bind:value="$t('login.signIn')" @click="login()">
+            <input class="login-button" type="button" v-bind:value="$t('login.signIn')" @click="login()">
         </div>
     </div>
 </template>
@@ -49,24 +49,24 @@ export default {
 </script>
 
 <style scoped>
-.loginpage-layout {
+.layout {
     min-height: 300px;
 }
 
-.loginpage-title {
+.title {
     text-align: center;
 }
 
-.loginpage-container {
+.main-container {
     width: 300px;
     margin: auto;
 }
 
-.loginpage-label {
-    
+.login-label {
+    margin: 0px 0px 0px 5px;
 }
 
-.loginpage-button {
+.login-button {
     margin: 15px auto 5px auto;
     display: block;
 }
