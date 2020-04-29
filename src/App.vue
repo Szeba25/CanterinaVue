@@ -26,12 +26,12 @@
                             {{ $t("menu.about.choir") }}
                         </p>
                     </router-link>
-                    <router-link to="/about_members">
+                    <router-link to="/about_members/1">
                         <p class="dropdown-menu-point">
                             {{ $t("menu.about.members") }}
                         </p>
                     </router-link>
-                    <router-link to="/about_conductors">
+                    <router-link to="/about_conductors/1">
                         <p class="dropdown-menu-point">
                             {{ $t("menu.about.conductors") }}
                         </p>
