@@ -90,11 +90,6 @@ const messages = {
             contact: "Contact",
             forMembers: "For members"
         },
-        tmp: {
-            news1: "Actual news 1",
-            news2: "Actual news 2",
-            news3: "Actual news 3"
-        },
         login: {
             title: "Welcome!",
             username: "Username",
@@ -118,11 +113,6 @@ const messages = {
             public: "Közérdekű",
             contact: "Kapcsolat",
             forMembers: "Tagoknak"
-        },
-        tmp: {
-            news1: "Aktuális hír 1",
-            news2: "Aktuális hír 2",
-            news3: "Aktuális hír 3"
         },
         login: {
             title: "Üdvözöljük!",

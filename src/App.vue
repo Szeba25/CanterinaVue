@@ -233,6 +233,7 @@ input[type=text]:focus, input[type=password]:focus {
                            auto
                            auto
                            auto;
+    grid-gap: 5px;
     padding: 0px;
     text-align: center;
     margin: auto;

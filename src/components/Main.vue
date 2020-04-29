@@ -11,17 +11,9 @@
             </a>
         </div>
         <div>
-            <div class="news">
+            <div class="news" v-for="item in news" :key="item.index">
                 <div class="news-img"></div>
-                <p class="news-txt">{{ $t("tmp.news1") }}</p>
-            </div>
-            <div class="news">
-                <div class="news-img"></div>
-                <p class="news-txt">{{ $t("tmp.news2") }}</p>
-            </div>
-            <div class="news">
-                <div class="news-img"></div>
-                <p class="news-txt">{{ $t("tmp.news3") }}</p>
+                <p class="news-txt">{{ item[$i18n.locale].text }}</p>
             </div>
         </div>
     </div>
@@ -29,7 +21,17 @@
 
 <script>
 export default {
-    name: "Main"
+    name: "Main",
+
+    data() {
+        return {
+            news: [
+                { en: { text: "News item 1" }, hu: { text: "Új hír 1" }, src: "", link: "" },
+                { en: { text: "News item 2" }, hu: { text: "Új hír 2" }, src: "", link: "" },
+                { en: { text: "News item 3" }, hu: { text: "Új hír 3" }, src: "", link: "" }
+            ]
+        }
+    }
 }
 </script>
 
