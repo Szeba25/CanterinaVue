@@ -16,7 +16,7 @@
             </router-link>
             <div class="dropdown">
                 <router-link to="/about_choir">
-                    <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('About') }">
+                    <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('AboutChoir', 'AboutMembers', 'AboutConductors') }">
                         {{ $t("menu.about.main") }}
                     </p>
                 </router-link>
@@ -247,6 +247,7 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .main-menu-point:hover {
+    cursor: pointer;
     color: #e72a15;
     background-color: #c7483a2d;
     border-radius: 5px;
@@ -309,5 +310,19 @@ input[type=text]:focus, input[type=password]:focus {
     border: 1px solid #a51c0d;
     border-radius: 5px;
     box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+.text-button {
+    font-size: 16px;
+    padding: 4px 8px 4px 8px;
+    transition: 0.5s;
+    font-family: 'Segoe UI';
+}
+
+.text-button:hover, .text-button-active {
+    cursor: pointer;
+    color: #e72a15;
+    background-color: #c7483a2d;
+    border-radius: 5px;
 }
 </style>

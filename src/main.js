@@ -96,6 +96,10 @@ const messages = {
             password: "Password",
             signIn: "Sign in",
             signOut: "Sign out"
+        },
+        about: {
+            members: "Members",
+            conductors: "Conductors"
         }
     },
     hu: {
@@ -120,6 +124,10 @@ const messages = {
             password: "Jelszó",
             signIn: "Bejelentkezés",
             signOut: "Kijelentkezés"
+        },
+        about: {
+            members: "Tagok",
+            conductors: "Karnagyok"
         }
     }
 };

@@ -13,7 +13,7 @@
         <div>
             <div class="news" v-for="item in news" :key="item.index">
                 <div class="news-img"></div>
-                <p class="news-txt">{{ item[$i18n.locale].text }}</p>
+                <p class="news-txt">{{ item.text[$i18n.locale] }}</p>
             </div>
         </div>
     </div>
@@ -27,9 +27,9 @@ export default {
         return {
             mainPicture: "example.jpg",
             news: [
-                { en: { text: "News item 1" }, hu: { text: "Új hír 1" }, src: "", link: "" },
-                { en: { text: "News item 2" }, hu: { text: "Új hír 2" }, src: "", link: "" },
-                { en: { text: "News item 3" }, hu: { text: "Új hír 3" }, src: "", link: "" }
+                { text: { en: "News item 1", hu: "Új hír 1" }, src: "", link: "" },
+                { text: { en: "News item 2", hu: "Új hír 2" }, src: "", link: "" },
+                { text: { en: "News item 3", hu: "Új hír 3" }, src: "", link: "" },
             ]
         }
     }
