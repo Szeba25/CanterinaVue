@@ -63,10 +63,11 @@ export default {
 }
 
 .news-img {
+    border: 1px solid #a51c0d;
     border-radius: 5px;
     background-color: #a51c0d;
-    width: 320px;
-    height: 120px;
+    width: 318px;
+    height: 178px;
 }
 
 .news-txt {

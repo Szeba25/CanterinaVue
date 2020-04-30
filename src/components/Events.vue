@@ -8,7 +8,7 @@
         </div>
         <hr>
         <div class="older-events">
-            <div v-for="event in older" :key="event.index">
+            <div class="older-events-item" v-for="event in older" :key="event.index">
                 <img class="styled-picture older-events-picture" v-bind:src="event.picture">
                 <h3 class="older-events-title">{{ event.title[$i18n.locale] }}</h3>
                 <p class="older-events-date">{{ event.date }}</p>
@@ -28,7 +28,7 @@ export default {
             older: [
                 { picture: "event.jpg", date: "2020. 04. 29.", title: {en: "Event 1 title", hu: "1. Esemény"}, content: {en: "<p>Event description</p>", hu: "<p>Esemény leírás</p>"} },
                 { picture: "event.jpg", date: "2020. 04. 21.", title: {en: "Event 2 title", hu: "2. Esemény"}, content: {en: "<p>Event description</p>", hu: "<p>Esemény leírás</p>"} },
-                { picture: "event.jpg", date: "2020. 04. 11.", title: {en: "Event 3 title", hu: "3. Esemény"}, content: {en: "<p>Event description</p>", hu: "<p>Esemény leírás</p>"} },
+                { picture: "event.jpg", date: "2020. 04. 11.", title: {en: "Event 3 title", hu: "3. Esemény"}, content: {en: "<p>Event description long long long long long long long long long long asd long long long long long long asd long long long long long asd long long long long long long long long long long long long long long long long asdasd long asd long long asd long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long long</p>", hu: "<p>Esemény leírás</p>"} },
                 { picture: "event.jpg", date: "2020. 04. 9.", title: {en: "Event 4 title", hu: "4. Esemény"}, content: {en: "<p>Event description</p>", hu: "<p>Esemény leírás</p>"} },
                 { picture: "event.jpg", date: "2020. 03. 4.", title: {en: "Event 5 title", hu: "5. Esemény"}, content: {en: "<p>Event description</p>", hu: "<p>Esemény leírás</p>"} }
             ]
@@ -71,6 +71,14 @@ export default {
     grid-row-gap: 20px;
 }
 
+.older-events-item {
+    border: 1px solid #a51c0d;
+    border-radius: 10px;
+    background: #fcf8d9;
+    padding: 10px;
+    margin: 0px 10px 0px 0px;
+}
+
 .older-events-title {
     margin: 0px;
 }
@@ -89,6 +97,7 @@ export default {
 }
 
 .older-events-content {
+    text-align: justify;
     font-size: 14px;
 }
 </style>
