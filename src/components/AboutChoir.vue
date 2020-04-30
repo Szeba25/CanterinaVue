@@ -48,8 +48,8 @@ export default {
 .choir-picture {
     float: left;
     margin: 0px 25px 10px 0px;
-    width: 538px;
-    height: 318px;
+    width: 498px;
+    height: 373px;
 }
 
 .audio-container {

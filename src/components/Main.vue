@@ -77,6 +77,6 @@ export default {
 
 .main-picture {
     width: 658px;
-    height: 398px;
+    height: 498px;
 }
 </style>
