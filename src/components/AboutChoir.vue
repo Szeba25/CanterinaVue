@@ -22,7 +22,20 @@ export default {
     data() {
         return {
             picture: "choir.jpg",
-            content: { en: "<h2>Test title</h2><p>Test content random text random text random text.</p><p>Another paragraph <i>in italic</i></p>", hu: "<h2>Teszt cím</h2><p>Tartalom, ez is tartalom, meg ez is.</p><p>Egy másik paragrafus, <i>dőlt betűs</i></p>" },
+            content: { 
+                en: "" +
+                "<h2>Test title</h2>" +
+                "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec posuere enim. Nunc eu mauris vel sem efficitur auctor a vel turpis. Integer eget vehicula diam. Nulla eleifend velit id ipsum porta, pretium gravida tellus rhoncus. Etiam imperdiet ex orci, ut pharetra nisl feugiat quis.</p>" +
+                "<p>Nam eu justo sit amet felis pulvinar dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec sollicitudin augue, sit amet tincidunt elit. Nunc congue sagittis dui, sit amet mollis libero dictum quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras scelerisque ligula velit. Mauris vulputate magna id ultricies laoreet. Phasellus non lacus leo. Sed eu faucibus arcu, sed condimentum sem. Curabitur sed molestie sapien. Proin eleifend augue et dolor tempus semper eget quis orci. Proin eleifend augue et dolor tempus semper eget quis orci.</p>" +
+                "<p><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec posuere enim. Nunc eu mauris vel sem efficitur auctor a vel turpis. Integer eget vehicula diam. Nulla eleifend velit id ipsum porta, pretium gravida tellus rhoncus. Etiam imperdiet ex orci, ut pharetra nisl feugiat quis.</i></p>" + 
+                "<p>Nam eu justo sit amet felis pulvinar dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec sollicitudin augue, sit amet tincidunt elit. Nunc congue sagittis dui, sit amet mollis libero dictum quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras scelerisque ligula velit. Mauris vulputate magna id ultricies laoreet. Phasellus non lacus leo. Sed eu faucibus arcu, sed condimentum sem. Curabitur sed molestie sapien. Proin eleifend augue et dolor tempus semper eget quis orci.</p>", 
+                hu: "" +
+                "<h2>Test title</h2>" +
+                "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec posuere enim. Nunc eu mauris vel sem efficitur auctor a vel turpis. Integer eget vehicula diam. Nulla eleifend velit id ipsum porta, pretium gravida tellus rhoncus. Etiam imperdiet ex orci, ut pharetra nisl feugiat quis.</p>" +
+                "<p>Nam eu justo sit amet felis pulvinar dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec sollicitudin augue, sit amet tincidunt elit. Nunc congue sagittis dui, sit amet mollis libero dictum quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras scelerisque ligula velit. Mauris vulputate magna id ultricies laoreet. Phasellus non lacus leo. Sed eu faucibus arcu, sed condimentum sem. Curabitur sed molestie sapien. Proin eleifend augue et dolor tempus semper eget quis orci. Proin eleifend augue et dolor tempus semper eget quis orci.</p>" +
+                "<p><i>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec posuere enim. Nunc eu mauris vel sem efficitur auctor a vel turpis. Integer eget vehicula diam. Nulla eleifend velit id ipsum porta, pretium gravida tellus rhoncus. Etiam imperdiet ex orci, ut pharetra nisl feugiat quis.</i></p>" + 
+                "<p>Nam eu justo sit amet felis pulvinar dictum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean nec sollicitudin augue, sit amet tincidunt elit. Nunc congue sagittis dui, sit amet mollis libero dictum quis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras scelerisque ligula velit. Mauris vulputate magna id ultricies laoreet. Phasellus non lacus leo. Sed eu faucibus arcu, sed condimentum sem. Curabitur sed molestie sapien. Proin eleifend augue et dolor tempus semper eget quis orci.</p>", 
+            },
             audio: [
                 { title: { en: "Music 1", hu: "1. Zene" }, src:"test.mp3" },
                 { title: { en: "Music 2", hu: "2. Zene" }, src:"test.mp3" },
@@ -47,7 +60,7 @@ export default {
 
 .choir-picture {
     float: left;
-    margin: 0px 25px 10px 0px;
+    margin: 15px 25px 10px 0px;
     width: 498px;
     height: 373px;
 }

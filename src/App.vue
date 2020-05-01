@@ -1,6 +1,14 @@
 <template>
     <div class="main-layout">
         <div>
+            <div class="main-social-container">
+                <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
+                <img class="social-media-link" src="@/assets/fb.png">
+                </a>
+                <a target="_blank" href="https://www.youtube.com">
+                    <img class="social-media-link" src="@/assets/yt.png">
+                </a>
+            </div>
             <div class="main-lang-container">
                 <img class="main-lang-item" src="@/assets/hu.png" @click="changeLanguage('hu')">
                 <img class="main-lang-item" src="@/assets/en.png" @click="changeLanguage('en')">
@@ -98,32 +106,37 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+
 html {
     overflow-y: scroll;
 }
 
 body {
     margin: 0px auto;
-    background-color: #0f0c0c;
+    background-color: #ffeeaf;
+    background-image: url("assets/bkg.jpg");
+    background-repeat: both;
     max-width: 1100px;
 }
 
-body:fater {
+body:after {
     display: none;
 }
 
 a {
-    color: #91646e;
+    color: #6b6b6b;
     text-decoration: none;
 }
 a:visited {
-    color: #91646e;
+    color: #6b6b6b;
     text-decoration: none;
 }
 
 a, p, h1, h2, h3, h4, figcaption {
-    font-family: 'Segoe UI';
-    color: #0f0c0c;
+    font-family: 'Amiri', serif;
+    color: #efdfb8;
 }
 
 h2, h3, h4 {
@@ -131,19 +144,23 @@ h2, h3, h4 {
 }
 
 p {
+    font-size: 18px;
+    line-height: 1.5;
     margin: 5px 0px;
 }
 
 hr {
-    border-top: 1px solid #a51c0d;
+    border-top: 1px solid #efdfb8;
     margin: 5px 5px;
 }
 
 input[type=button] {
-    background-color: #a51c0d;
+    background-color: #c0c0c0;
     font-size: 16px;
-    border: none;
-    color: white;
+    font-style: italic;
+    border: 2px solid #2e2e2e;
+    border-radius: 25px;
+    color: #000000;
     padding: 12px 24px;
     margin: 2px 4px;
     text-decoration: none;
@@ -153,15 +170,15 @@ input[type=button] {
 }
 
 input[type=button]:focus {
-    outline: 1px solid #91646e;
+    outline: none;
 }
 
 input[type=button]:hover {
-    background: #e72a15 radial-gradient(circle, transparent 1%, #e72a15 1%) center/15000%;
+    background: #efdfb8 radial-gradient(circle, transparent 1%, #efdfb8 1%) center/15000%;
 }
 
 input[type=button]:active {
-    background-color: #ff6b5b;
+    background-color: #ffffff;
     background-size: 100%;
     transition: background 0s;
 }
@@ -171,14 +188,15 @@ input[type=text], input[type=password] {
     width: 100%;
     padding: 8px;
     margin: 5px;
-    border: 1px solid  #a51c0d;
-    border-radius: 4px;
+    background-color: #ffeeaf;
+    border: 2px solid #2e2e2e;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
 input[type=text]:focus, input[type=password]:focus {
     outline: none;
-    border: 1px solid #e72a15;
+    border: 2px solid #6b6b6b;
 }
 
 .centered-text {
@@ -187,6 +205,11 @@ input[type=text]:focus, input[type=password]:focus {
 
 .justified-text {
     text-align: justify;
+}
+
+.main-social-container {
+    float: left;
+    margin: 0px 5px;
 }
 
 .main-lang-container {
@@ -209,7 +232,7 @@ input[type=text]:focus, input[type=password]:focus {
     display: block;
     background-image: url("assets/logo.png");
     width: 380px;
-    height: 100px;
+    height: 110px;
     margin: auto;
 }
 
@@ -219,8 +242,9 @@ input[type=text]:focus, input[type=password]:focus {
     grid-gap: 0px;
     padding: 0px;
     margin: 20px;
-    background-color: white;
+    background-color: #000000;
     border-radius: 5px;
+    box-shadow: 0px 0px 10px 3px #000000;
 }
 
 .main-menu {
@@ -240,22 +264,22 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .main-menu-point {
-    font-size: 18px;
+    font-size: 28px;
     padding: 6px 10px 6px 10px;
     transition: 0.5s;
-    font-family: 'Segoe UI';
+    font-family: 'Allura', cursive;
 }
 
 .main-menu-point:hover {
     cursor: pointer;
-    color: #e72a15;
-    background-color: #c7483a2d;
+    color: #ffffff;
+    background-color: #2e2e2e;
     border-radius: 5px;
 }
 
 .main-menu-active {
-    color: #e72a15;
-    background-color: #c7483a2d;
+    color: #ffffff;
+    background-color: #2e2e2e;
     border-radius: 5px;
 }
 
@@ -267,10 +291,11 @@ input[type=text]:focus, input[type=password]:focus {
     display: none;
     position: absolute;
     margin: 0px 0px 0px 5px;
-    background-color: white;
+    background-color: #000000;
     min-width: 100px;
     text-align: left;
-    border: 1px solid #91646e;
+    border: 1px solid #efdfb8;
+    border-radius: 5px;
     box-shadow: 0px 6px 12px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
@@ -280,49 +305,48 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .dropdown-menu-point {
-    font-size: 18px;
+    font-size: 26px;
     margin: 0px;
     padding: 6px;
+    border-radius: 5px;
     transition: 0.5s;
-    font-family: 'Segoe UI';
+    font-family: 'Allura', cursive;
 }
 
 .dropdown-menu-point:hover {
-    color: #e72a15;
-    background-color: #c7483a2d;
+    color: #ffffff;
+    background-color: #2e2e2e;
 }
 
 .social-media-link {
     margin: 5px 5px 0px 0px;
-    width: 45px;
-    height: 45px;
-    border-radius: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
     transition: 0.3s;
 }
 
 .social-media-link:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 10px 3px #c7483a9a;
+    box-shadow: 0px 0px 10px 3px #2e2e2e;
 }
 
 .styled-picture {
     object-fit: cover;
-    border: 1px solid #a51c0d;
-    border-radius: 5px;
-    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
 .text-button {
-    font-size: 16px;
-    padding: 4px 8px 4px 8px;
+    font-size: 20px;
+    padding: 2px 4px 2px 4px;
     transition: 0.5s;
-    font-family: 'Segoe UI';
+    font-family: 'Amiri', serif;
 }
 
 .text-button:hover, .text-button-active {
     cursor: pointer;
-    color: #e72a15;
-    background-color: #c7483a2d;
+    color: #ffffff;
+    background-color: #2e2e2e;
     border-radius: 5px;
 }
 </style>

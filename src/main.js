@@ -26,9 +26,9 @@ Vue.config.productionTip = false;
 const routes = [
     { name: "Main", path: "/", components: { default: Main } },
     { name: "AboutChoir", path: "/about_choir", components: { default: AboutChoir } },
-    { name: "AboutMembers", path: "/about_members", components: { default: AboutMembers } },
+    { name: "AboutMembersMain", path: "/about_members", components: { default: AboutMembers } },
     { name: "AboutMembers", path: "/about_members/:id", components: { default: AboutMembers } },
-    { name: "AboutConductors", path: "/about_conductors", components: { default: AboutConductors } },
+    { name: "AboutConductorsMain", path: "/about_conductors", components: { default: AboutConductors } },
     { name: "AboutConductors", path: "/about_conductors/:id", components: { default: AboutConductors } },
     { name: "Events", path: "/events", components: { default: Events } },
     { name: "Albums", path: "/albums", components: { default: Albums } },
@@ -92,6 +92,9 @@ const messages = {
             contact: "Contact",
             forMembers: "For members"
         },
+        main: {
+            moreNews: "More news"
+        },
         login: {
             title: "Welcome!",
             username: "Username",
@@ -119,6 +122,9 @@ const messages = {
             public: "Közérdekű",
             contact: "Kapcsolat",
             forMembers: "Tagoknak"
+        },
+        main: {
+            moreNews: "További hírek"
         },
         login: {
             title: "Üdvözöljük!",

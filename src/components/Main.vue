@@ -1,21 +1,15 @@
 <template>
     <div class="layout">
-        <div class="left-container">
+        <div class="top-container">
             <img class="styled-picture main-picture" v-bind:src="mainPicture">
-            <br>
-            <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
-                <img class="social-media-link" src="@/assets/fb.png">
-            </a>
-            <a target="_blank" href="https://www.youtube.com">
-                <img class="social-media-link" src="@/assets/yt.png">
-            </a>
         </div>
-        <div>
+        <div class="bottom-container">
             <div class="news" v-for="item in news" :key="item.index">
-                <div class="news-img"></div>
+                <img class="styled-picture news-picture" src="event.jpg">
                 <p class="news-txt">{{ item.text[$i18n.locale] }}</p>
             </div>
         </div>
+        <input class="more-news-button" type="button" v-bind:value="$t('main.moreNews')">
     </div>
 </template>
 
@@ -25,7 +19,7 @@ export default {
 
     data() {
         return {
-            mainPicture: "example.jpg",
+            mainPicture: "main.jpg",
             news: [
                 { text: { en: "News item 1", hu: "Új hír 1" }, src: "", link: "" },
                 { text: { en: "News item 2", hu: "Új hír 2" }, src: "", link: "" },
@@ -39,17 +33,23 @@ export default {
 <style scoped>
 .layout {
     display: grid;
-    grid-template-columns: min-content min-content;
+    grid-template-rows: auto auto min-content;
     grid-gap: 30px;
-    margin: 10px 0px 25px 0px;
+    margin: 25px;
 }
 
-.left-container {
-    margin: 0px 0px 0px 25px;
+.top-container {
+    
+}
+
+.bottom-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5px;
 }
 
 .title {
-    color: #a51c0d;
+    color: #efdfb8;
     margin: 5px 0px 10px 0px;
 }
 
@@ -59,25 +59,28 @@ export default {
 }
 
 .news:hover .news-txt {
-    color: #e72a15;
+    color: #efdfb8;
 }
 
-.news-img {
-    border: 1px solid #a51c0d;
-    border-radius: 5px;
-    background-color: #a51c0d;
-    width: 318px;
-    height: 178px;
+.news-picture {
+    margin: auto;
+    border: 2px solid #efdfb8;
+    width: 298px;
+    height: 168px;
 }
 
 .news-txt {
     margin: 0px 0px 10px 0px;
-    color: #83837c;
+    color: #6b6b6b;
     transition: 0.3s;
 }
 
 .main-picture {
-    width: 658px;
-    height: 498px;
+    width: 100%;
+}
+
+.more-news-button {
+    margin: auto;
+    width: 200px;
 }
 </style>

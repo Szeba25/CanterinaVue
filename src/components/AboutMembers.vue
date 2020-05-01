@@ -74,7 +74,7 @@ export default {
 }
 
 .member-list {
-    border-right: 2px solid #a51c0d;
+    border-right: 2px solid #efdfb8;
     padding-right: 5px;
 }
 
