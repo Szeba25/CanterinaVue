@@ -13,6 +13,11 @@
                 <img class="main-lang-item" src="@/assets/hu.png" @click="changeLanguage('hu')">
                 <img class="main-lang-item" src="@/assets/en.png" @click="changeLanguage('en')">
             </div>
+            <div @click="toggleMobileMenu()" v-bind:class="[{'mobile-menu-change': mobileMenuVisible}, 'mobile-menu']">
+                <div class="mobile-menu-bar1"></div>
+                <div class="mobile-menu-bar2"></div>
+                <div class="mobile-menu-bar3"></div>
+            </div>
             <div class="main-logo"></div>
             <hr class="main-separator">
         </div>
@@ -77,6 +82,16 @@
                 </p>
             </router-link>
         </div>
+        <div v-bind:class="['mobile-menu-' + (mobileMenuVisible ? 'on' : 'off'), 'mobile-menu-content']">
+            <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
+            <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+        </div>
         <div>
             <hr>
             <router-view></router-view>
@@ -87,6 +102,12 @@
 <script>
 export default {
     name: "App",
+
+    data() {
+        return {
+            mobileMenuVisible: false
+        }
+    },
 
     methods: {
         changeLanguage(code) {
@@ -100,6 +121,10 @@ export default {
                 this.$router.currentRoute.name === name
             );
             return match;
+        },
+
+        toggleMobileMenu() {
+            this.mobileMenuVisible = !this.mobileMenuVisible;
         }
     }
 }
@@ -218,6 +243,89 @@ input[type=text]:focus, input[type=password]:focus {
     }
 }
 
+.mobile-menu {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+    cursor: pointer;
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        display: block;
+    }
+}
+
+.mobile-menu-bar1, .mobile-menu-bar2, .mobile-menu-bar3 {
+    width: 40px;
+    height: 4px;
+    background-color: #efdfb8;
+    margin: 7px 0px;
+    transition: 0.5s;
+}
+
+.mobile-menu-change .mobile-menu-bar1 {
+    transform: translate(0px, 11px) rotate(225deg);
+}
+
+.mobile-menu-change .mobile-menu-bar2 {
+    opacity: 0;
+    transform: translateX(-8px) scaleX(1.5) scaleY(0.5);
+}
+
+.mobile-menu-change .mobile-menu-bar3 {
+    transform: translate(0px, -11px) rotate(-225deg);
+}
+
+.mobile-menu-content {
+    display: none;
+    padding: 40px 25px;
+}
+
+@media only screen and (max-width: 700px) {
+    .mobile-menu-content {
+        display: block;
+        background-color: #000000;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+    }
+}
+
+.mobile-menu-item {
+    font-size: 26px;
+    padding: 2px 4px 2px 4px;
+    transition: 0.5s;
+    font-family: 'Amiri', serif;
+}
+
+.mobile-menu-item:hover {
+    cursor: pointer;
+    color: #ffffff;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+}
+
+.mobile-menu-on {
+    opacity: 1;
+    transition: 0.5s;
+    height: 100%;
+    width: 50%;
+}
+
+.mobile-menu-off {
+    opacity: 0;
+    transition: 0.5s;
+    height: 100%;
+    width: 0;
+}
+
 .main-lang-container {
     float: right;
 }
@@ -314,6 +422,13 @@ input[type=text]:focus, input[type=password]:focus {
 @media only screen and (max-width: 1100px) {
     .main-menu-point {
         font-size: 26px;
+        padding: 3px 5px 3px 5px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main-menu-point {
+        font-size: 22px;
         padding: 3px 5px 3px 5px;
     }
 }
