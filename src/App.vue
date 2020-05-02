@@ -83,7 +83,7 @@
             </router-link>
         </div>
         <div v-bind:class="['mobile-menu-' + (mobileMenuVisible ? 'on' : 'off'), 'mobile-menu-content']">
-            <div @click="toggleMobileMenu()" class="mobile-menu-outside"></div>
+            <div @click="closeMobileMenu()" v-bind:class="'mobile-menu-outside-' + (mobileMenuVisible ? 'on' : 'off')"></div>
             <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
                 <img class="social-media-link-mobile" src="@/assets/fb.png">
             </a>
@@ -146,6 +146,11 @@ export default {
 
         toggleMobileMenu() {
             this.mobileMenuVisible = !this.mobileMenuVisible;
+            this.aboutItemsVisible = false;
+        },
+
+        closeMobileMenu() {
+            this.mobileMenuVisible = false;
             this.aboutItemsVisible = false;
         },
 
@@ -321,13 +326,18 @@ input[type=text]:focus, input[type=password]:focus {
     transform: translate(0px, -11px) rotate(-225deg);
 }
 
-.mobile-menu-outside {
+.mobile-menu-outside-on {
+    display: block;
     z-index: 0; 
     width: 30vw; 
     height: 100vh; 
     position: fixed; 
     top: 0px; 
     left: 0px;
+}
+
+.mobile-menu-outside-off {
+    display: none;
 }
 
 .mobile-menu-content {
