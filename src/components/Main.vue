@@ -38,6 +38,12 @@ export default {
     margin: 25px;
 }
 
+@media only screen and (max-width: 700px) {
+    .layout {
+        margin: 15px 0px;
+    }
+}
+
 .top-container {
     
 }
@@ -46,6 +52,22 @@ export default {
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .bottom-container {
+        margin: 0px auto;
+        grid-template-columns: min-content min-content;
+        grid-gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .bottom-container {
+        margin: 0px auto;
+        grid-template-columns: min-content;
+        grid-gap: 10px;
+    }
 }
 
 .title {
@@ -77,6 +99,12 @@ export default {
 
 .main-picture {
     width: 100%;
+}
+
+@media only screen and (max-width: 700px) {
+    .main-picture {
+        border-radius: 0px;
+    }
 }
 
 .more-news-button {

@@ -14,7 +14,7 @@
                 <img class="main-lang-item" src="@/assets/en.png" @click="changeLanguage('en')">
             </div>
             <div class="main-logo"></div>
-            <hr>
+            <hr class="main-separator">
         </div>
         <div class="main-menu">
             <router-link to="/">
@@ -212,8 +212,20 @@ input[type=text]:focus, input[type=password]:focus {
     margin: 0px 5px;
 }
 
+@media only screen and (max-width: 700px) {
+    .main-social-container {
+        display: none;
+    }
+}
+
 .main-lang-container {
     float: right;
+}
+
+@media only screen and (max-width: 700px) {
+    .main-lang-container {
+        display: none;
+    }
 }
 
 .main-lang-item {
@@ -231,9 +243,24 @@ input[type=text]:focus, input[type=password]:focus {
 .main-logo {
     display: block;
     background-image: url("assets/logo.png");
+    background-size: 380px 110px;
     width: 380px;
     height: 110px;
     margin: auto;
+}
+
+@media only screen and (max-width: 500px) {
+    .main-logo {
+        background-size: 266px 77px;
+        width: 266px;
+        height: 77px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .main-separator {
+        display: none;
+    }
 }
 
 .main-layout {
@@ -245,6 +272,14 @@ input[type=text]:focus, input[type=password]:focus {
     background-color: #000000;
     border-radius: 5px;
     box-shadow: 0px 0px 10px 3px #000000;
+}
+
+@media only screen and (max-width: 1100px) {
+    .main-layout {
+        margin: 0px;
+        border-radius: 0px;
+        box-shadow: none;
+    }
 }
 
 .main-menu {
@@ -263,11 +298,24 @@ input[type=text]:focus, input[type=password]:focus {
     margin: auto;
 }
 
+@media only screen and (max-width: 700px) {
+    .main-menu {
+        display: none;
+    }
+}
+
 .main-menu-point {
     font-size: 28px;
     padding: 6px 10px 6px 10px;
     transition: 0.5s;
     font-family: 'Allura', cursive;
+}
+
+@media only screen and (max-width: 1100px) {
+    .main-menu-point {
+        font-size: 26px;
+        padding: 3px 5px 3px 5px;
+    }
 }
 
 .main-menu-point:hover {
