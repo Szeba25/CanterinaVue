@@ -89,16 +89,25 @@
             <a target="_blank" href="https://www.youtube.com">
                 <img class="social-media-link-mobile" src="@/assets/yt.png">
             </a>
-            <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
-            <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
-            <div style="height: 15px;"></div>
-            <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
+            <div v-if="!aboutItemsVisible">
+                <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
+                <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+                <div style="height: 15px;"></div>
+                <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
+            </div>
+            <div v-else>
+                <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.back") }}</p>
+                <div style="height: 15px;"></div>
+                <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
+                <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
+            </div>
         </div>
         <div>
             <hr>
@@ -113,7 +122,8 @@ export default {
 
     data() {
         return {
-            mobileMenuVisible: false
+            mobileMenuVisible: false,
+            aboutItemsVisible: false
         }
     },
 
@@ -135,6 +145,10 @@ export default {
             this.mobileMenuVisible = !this.mobileMenuVisible;
         },
 
+        toggleAboutMenu() {
+            this.aboutItemsVisible = !this.aboutItemsVisible;
+        },
+
         toggleLanguage() {
             if (this.$i18n.locale === 'hu') {
                 this.$i18n.locale = 'en';
@@ -150,20 +164,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 
-html {
-    overflow-y: scroll;
-}
-
 body {
     margin: 0px auto;
     background-color: #ffeeaf;
     background-image: url("assets/bkg.jpg");
     background-repeat: both;
     max-width: 1100px;
-}
-
-body:after {
-    display: none;
 }
 
 a {
@@ -337,8 +343,6 @@ input[type=text]:focus, input[type=password]:focus {
 
 .mobile-menu-item:hover {
     cursor: pointer;
-    color: #ffffff;
-    background-color: #2e2e2e;
     border-radius: 5px;
 }
 
@@ -346,14 +350,14 @@ input[type=text]:focus, input[type=password]:focus {
     opacity: 1;
     transition: 0.5s;
     height: 100%;
-    width: 50%;
+    width: 60%;
 }
 
 .mobile-menu-off {
     opacity: 0;
     transition: 0.5s;
     height: 100%;
-    width: 0;
+    width: 0%;
 }
 
 .main-lang-container {
@@ -509,6 +513,12 @@ input[type=text]:focus, input[type=password]:focus {
     font-family: 'Allura', cursive;
 }
 
+@media only screen and (max-width: 1100px) {
+    .dropdown-menu-point {
+        font-size: 22px;
+    }
+}
+
 .dropdown-menu-point:hover {
     color: #ffffff;
     background-color: #2e2e2e;
@@ -544,5 +554,12 @@ input[type=text]:focus, input[type=password]:focus {
     color: #ffffff;
     background-color: #2e2e2e;
     border-radius: 5px;
+}
+
+@media only screen and (max-width: 700px) {
+    .text-button:hover {
+        color: #efdfb8;
+        background-color: transparent;
+    }
 }
 </style>

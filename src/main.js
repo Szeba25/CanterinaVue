@@ -78,6 +78,7 @@ const store = new Vuex.Store({
 const messages = {
     en: {
         menu: {
+            back: "Back",
             main: "Main",
             about: {
                 main: "About",
@@ -110,6 +111,7 @@ const messages = {
     },
     hu: {
         menu: {
+            back: "Vissza",
             main: "Főoldal",
             about: {
                 main: "Rólunk",
