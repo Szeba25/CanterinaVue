@@ -3,7 +3,7 @@
         <div>
             <div class="main-social-container">
                 <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
-                <img class="social-media-link" src="@/assets/fb.png">
+                    <img class="social-media-link" src="@/assets/fb.png">
                 </a>
                 <a target="_blank" href="https://www.youtube.com">
                     <img class="social-media-link" src="@/assets/yt.png">
@@ -83,6 +83,12 @@
             </router-link>
         </div>
         <div v-bind:class="['mobile-menu-' + (mobileMenuVisible ? 'on' : 'off'), 'mobile-menu-content']">
+            <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
+                <img class="social-media-link-mobile" src="@/assets/fb.png">
+            </a>
+            <a target="_blank" href="https://www.youtube.com">
+                <img class="social-media-link-mobile" src="@/assets/yt.png">
+            </a>
             <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
             <p class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
             <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
@@ -91,6 +97,8 @@
             <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
             <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
             <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+            <div style="height: 15px;"></div>
+            <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
         </div>
         <div>
             <hr>
@@ -125,6 +133,14 @@ export default {
 
         toggleMobileMenu() {
             this.mobileMenuVisible = !this.mobileMenuVisible;
+        },
+
+        toggleLanguage() {
+            if (this.$i18n.locale === 'hu') {
+                this.$i18n.locale = 'en';
+            } else {
+                this.$i18n.locale = 'hu';
+            }
         }
     }
 }
@@ -284,7 +300,7 @@ input[type=text]:focus, input[type=password]:focus {
 
 .mobile-menu-content {
     display: none;
-    padding: 40px 25px;
+    padding: 40px 5px 25px 25px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -296,6 +312,20 @@ input[type=text]:focus, input[type=password]:focus {
         right: 0;
         z-index: 1;
     }
+}
+
+.social-media-link-mobile {
+    margin: 5px 5px 0px 0px;
+    width: 50px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.social-media-link-mobile:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 3px #2e2e2e;
 }
 
 .mobile-menu-item {
@@ -339,13 +369,16 @@ input[type=text]:focus, input[type=password]:focus {
 .main-lang-item {
     display: block;
     float: right;
-    width: 40px;
-    height: 20px;
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
     margin: 5px 5px 0px 0px;
+    transition: 0.3s;
 }
 
 .main-lang-item:hover {
     cursor: pointer;
+    box-shadow: 0px 0px 10px 3px #2e2e2e;
 }
 
 .main-logo {
@@ -483,8 +516,8 @@ input[type=text]:focus, input[type=password]:focus {
 
 .social-media-link {
     margin: 5px 5px 0px 0px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 10px;
     transition: 0.3s;
 }

@@ -90,7 +90,8 @@ const messages = {
             gallery: "Gallery",
             public: "Public",
             contact: "Contact",
-            forMembers: "For members"
+            forMembers: "For members",
+            language: "Váltás magyarra"
         },
         main: {
             moreNews: "More news"
@@ -121,7 +122,8 @@ const messages = {
             gallery: "Galéria",
             public: "Közérdekű",
             contact: "Kapcsolat",
-            forMembers: "Tagoknak"
+            forMembers: "Tagoknak",
+            language: "Switch to english"
         },
         main: {
             moreNews: "További hírek"
