@@ -11,7 +11,7 @@
         <transition name="listfade" mode="out-in" key="1">
             <div v-if="compactListOpen" class="compact-member-list">
                 <p class="text-button larger-font" @click="toggleCompactList()">{{$t('about.back')}}</p>
-                <hr style="margin: 15px 0px">
+                <hr style="margin: 0px 0px 15px 0px">
                 <div v-bind:class="'compact-member-list-' + (compactListOpen ? 'on' : 'off')">
                     <p class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(member, index) in members" :key="member.index" @click="setSelected(index)">
                         {{ member.name }}
@@ -21,7 +21,7 @@
             <div v-else key="2">
                 <div class="compact-member-list">
                     <p class="text-button larger-font" @click="toggleCompactList()">{{$t('about.memberList')}}</p>
-                    <hr style="margin: 15px 0px">
+                    <hr style="margin: 0px 0px 15px 0px">
                 </div>
                 <div v-if="loaded">
                     <img class="styled-picture member-portrait" v-bind:src="members[selected].portrait">
@@ -97,6 +97,7 @@ export default {
 @media only screen and (max-width: 700px) {
     .layout {
         display: block;
+        margin: 5px;
     }
 }
 

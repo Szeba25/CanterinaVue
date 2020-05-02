@@ -92,23 +92,43 @@
             </a>
             <transition name="fade" mode="out-in">
                 <div v-if="!aboutItemsVisible" key="1">
-                    <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
+                    <router-link to="/">
+                        <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
+                    </router-link>
                     <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+                    <router-link to="/events">
+                        <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
+                    </router-link>
+                    <router-link to="/albums">
+                        <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
+                    </router-link>
+                    <router-link to="/gallery">
+                        <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
+                    </router-link>
+                    <router-link to="/public">
+                        <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
+                    </router-link>
+                    <router-link to="/contact">
+                        <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
+                    </router-link>
+                    <router-link to="/for_members">
+                        <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+                    </router-link>
                     <div style="height: 15px;"></div>
                     <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
                 </div>
                 <div v-else key="2">
                     <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.back") }}</p>
                     <div style="height: 15px;"></div>
-                    <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
-                    <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
+                    <router-link to="/about_choir">
+                        <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
+                    </router-link>
+                    <router-link to="/about_members/1">
+                        <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
+                    </router-link>
+                    <router-link to="/about_conductors/1">
+                        <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
+                    </router-link>
                 </div>
             </transition>
         </div>
@@ -127,6 +147,14 @@ export default {
         return {
             mobileMenuVisible: false,
             aboutItemsVisible: false
+        }
+    },
+
+    watch: {
+        $route(to, from) {
+            if (to.name !== from.name) {
+                this.closeMobileMenu();
+            }
         }
     },
 
@@ -349,7 +377,8 @@ input[type=text]:focus, input[type=password]:focus {
 
 .mobile-menu-content {
     display: none;
-    padding: 40px 1vw 25px 5vw;
+    border-left: 1px solid #ffeeaf;
+    padding: 40px 5px 25px 20px;
 }
 
 @media only screen and (max-width: 700px) {
