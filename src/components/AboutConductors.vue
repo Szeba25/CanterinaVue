@@ -24,8 +24,8 @@
                     <hr style="margin: 0px 0px 15px 0px">
                 </div>
                 <div v-if="loaded">
-                    <img class="styled-picture conductor-portrait" v-bind:src="conductors[selected].portrait">
                     <h2 class="conductor-name">{{ conductors[selected].name }}</h2>
+                    <img class="styled-picture conductor-portrait" v-bind:src="conductors[selected].portrait">
                     <div v-html="conductors[selected].bio[$i18n.locale]"></div>
                 </div>
             </div>
@@ -40,7 +40,7 @@ export default {
     methods: {
         setSelected(id) {
             this.compactListOpen = false;
-            this.$router.push("/about_conductors/" + (id + 1));
+            this.$router.push("/about_conductors/" + (id + 1)).catch(() => {});
         },
 
         toggleCompactList() {

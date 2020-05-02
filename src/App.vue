@@ -145,9 +145,18 @@ export default {
 
     data() {
         return {
+            scrollPosition: 0,
             mobileMenuVisible: false,
             aboutItemsVisible: false
         }
+    },
+
+    mounted() {
+        window.addEventListener('scroll', this.updateScroll);
+    },
+
+    destroy() {
+        window.removeEventListener('scroll', this.updateScroll);
     },
 
     watch: {
@@ -161,6 +170,10 @@ export default {
     methods: {
         changeLanguage(code) {
             this.$i18n.locale = code;
+        },
+
+        updateScroll() {
+            this.scrollPosition = window.scrollY;
         },
 
         isActive(...names) {
@@ -323,8 +336,12 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .mobile-menu {
+    background-color: #000000;
+    box-shadow: 0px 0px 10px 3px #000000;
+    border-radius: 10px;
     width: 40px;
     height: 40px;
+    padding: 10px;
     margin: 4px;
     cursor: pointer;
     display: none;
