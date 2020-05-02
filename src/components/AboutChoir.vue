@@ -54,6 +54,12 @@ export default {
     margin: 10px 25px 25px 25px;
 }
 
+@media only screen and (max-width: 700px) {
+    .layout {
+        margin: 10px;
+    }
+}
+
 .main-content {
     text-align: justify;
 }
@@ -61,8 +67,25 @@ export default {
 .choir-picture {
     float: left;
     margin: 15px 25px 10px 0px;
-    width: 498px;
-    height: 373px;
+    width: 500px;
+    height: 375px;
+}
+
+@media only screen and (max-width: 800px) {
+    .choir-picture {
+        width: 400px;
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .choir-picture {
+        float: none;
+        margin: 10px 0px;
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+    }
 }
 
 .audio-container {

@@ -181,6 +181,13 @@ body {
     max-width: 1100px;
 }
 
+@media only screen and (max-width: 1100px) {
+    body {
+        background-color: #000000;
+        background-image: none;
+    }
+}
+
 a {
     color: #6b6b6b;
     text-decoration: none;
@@ -598,12 +605,5 @@ input[type=text]:focus, input[type=password]:focus {
     color: #ffffff;
     background-color: #2e2e2e;
     border-radius: 5px;
-}
-
-@media only screen and (max-width: 700px) {
-    .text-button:hover {
-        color: #efdfb8;
-        background-color: transparent;
-    }
 }
 </style>
