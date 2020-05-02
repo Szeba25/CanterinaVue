@@ -89,25 +89,27 @@
             <a target="_blank" href="https://www.youtube.com">
                 <img class="social-media-link-mobile" src="@/assets/yt.png">
             </a>
-            <div v-if="!aboutItemsVisible">
-                <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
-                <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
-                <div style="height: 15px;"></div>
-                <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
-            </div>
-            <div v-else>
-                <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.back") }}</p>
-                <div style="height: 15px;"></div>
-                <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
-                <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
-            </div>
+            <transition name="fade" mode="out-in">
+                <div v-if="!aboutItemsVisible" key="1">
+                    <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
+                    <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+                    <div style="height: 15px;"></div>
+                    <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
+                </div>
+                <div v-else key="2">
+                    <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.back") }}</p>
+                    <div style="height: 15px;"></div>
+                    <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
+                    <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
+                </div>
+            </transition>
         </div>
         <div>
             <hr>
@@ -265,6 +267,19 @@ input[type=text]:focus, input[type=password]:focus {
     }
 }
 
+.fade-enter-active, .fade-leave-active {
+    transition: 0.3s;
+}
+.fade-enter {
+    transform: translateX(80px);
+    opacity: 0;
+}
+
+.fade-leave-to {
+    transform: translateX(-30px);
+    opacity: 0;
+}
+
 .mobile-menu {
     width: 40px;
     height: 40px;
@@ -317,6 +332,7 @@ input[type=text]:focus, input[type=password]:focus {
         top: 0;
         right: 0;
         z-index: 1;
+        overflow: auto;
     }
 }
 
