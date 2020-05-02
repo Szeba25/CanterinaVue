@@ -353,11 +353,18 @@ input[type=text]:focus, input[type=password]:focus {
 .mobile-menu-item {
     font-size: 26px;
     padding: 2px 4px 2px 4px;
-    transition: 0.5s;
+    transition: 0.2s;
     font-family: 'Amiri', serif;
 }
 
 .mobile-menu-item:hover {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.mobile-menu-item:active {
+    background-color: #2e2e2e;
+    color: #ffffff;
     cursor: pointer;
     border-radius: 5px;
 }
