@@ -512,6 +512,7 @@ input[type=text]:focus, input[type=password]:focus {
     color: #efdfb8;
     margin: 5px 0px;
     padding: 6px 18px;
+    border-radius: 10px;
     transition: 0.5s;
     font-family: 'Italianno', cursive;
 }
@@ -520,7 +521,6 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer;
     color: #ffffff;
     background-color: #2e2e2e;
-    border-radius: 10px;
 }
 
 .main-menu-active {
