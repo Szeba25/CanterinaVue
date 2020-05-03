@@ -7,8 +7,7 @@ import Axios from "axios";
 import App from "./App.vue";
 import Main from "./components/Main.vue";
 import AboutChoir from "./components/AboutChoir.vue";
-import AboutMembers from "./components/AboutMembers.vue";
-import AboutConductors from "./components/AboutConductors.vue";
+import AboutPersons from "./components/AboutPersons.vue";
 import Events from "./components/Events.vue";
 import Albums from "./components/Albums.vue";
 import Gallery from "./components/Gallery.vue";
@@ -26,10 +25,8 @@ Vue.config.productionTip = false;
 const routes = [
     { name: "Main", path: "/", components: { default: Main } },
     { name: "AboutChoir", path: "/about_choir", components: { default: AboutChoir } },
-    { name: "AboutMembersMain", path: "/about_members", components: { default: AboutMembers } },
-    { name: "AboutMembers", path: "/about_members/:id", components: { default: AboutMembers } },
-    { name: "AboutConductorsMain", path: "/about_conductors", components: { default: AboutConductors } },
-    { name: "AboutConductors", path: "/about_conductors/:id", components: { default: AboutConductors } },
+    { name: "AboutPersonsMain", path: "/about/:type(members|conductors)", components: { default: AboutPersons } },
+    { name: "AboutPersons", path: "/about/:type(members|conductors)/:id(\\d+)", components: { default: AboutPersons } },
     { name: "Events", path: "/events", components: { default: Events } },
     { name: "Albums", path: "/albums", components: { default: Albums } },
     { name: "Gallery", path: "/gallery", components: { default: Gallery } },
@@ -105,10 +102,14 @@ const messages = {
             signOut: "Sign out"
         },
         about: {
-            members: "Members",
-            conductors: "Conductors",
-            anotherMember: "Another member",
-            anotherConductor: "Another conductor"
+            members: {
+                type: "Members",
+                another: "Another member"
+            },
+            conductors: {
+                type: "Conductors",
+                another: "Another conductor"
+            }
         }
     },
     hu: {
@@ -140,10 +141,14 @@ const messages = {
             signOut: "Kijelentkezés"
         },
         about: {
-            members: "Tagok",
-            conductors: "Karnagyok",
-            anotherMember: "Másik tag",
-            anotherConductor: "Másik karnagy"
+            members: {
+                type: "Tagok",
+                another: "Másik tag"
+            },
+            conductors: {
+                type: "Karnagyok",
+                another: "Másik karnagy"
+            }
         }
     }
 };

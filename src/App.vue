@@ -39,12 +39,12 @@
                             {{ $t("menu.about.choir") }}
                         </div>
                     </router-link>
-                    <router-link to="/about_members/1">
+                    <router-link to="/about/members/1">
                         <div class="dropdown-menu-item">
                             {{ $t("menu.about.members") }}
                         </div>
                     </router-link>
-                    <router-link to="/about_conductors/1">
+                    <router-link to="/about/conductors/1">
                         <div class="dropdown-menu-item">
                             {{ $t("menu.about.conductors") }}
                         </div>
@@ -145,12 +145,12 @@
                             {{ $t("menu.about.choir") }}
                         </div>
                     </router-link>
-                    <router-link to="/about_members">
+                    <router-link to="/about/members">
                         <div class="mobile-menu-item">
                             {{ $t("menu.about.members") }}
                         </div>
                     </router-link>
-                    <router-link to="/about_conductors">
+                    <router-link to="/about/conductors">
                         <div class="mobile-menu-item">
                             {{ $t("menu.about.conductors") }}
                         </div>
@@ -187,7 +187,7 @@ export default {
 
     watch: {
         $route(to, from) {
-            if (to.name !== from.name) {
+            if (to.path !== from.path) {
                 this.closeMobileMenu();
             }
         }
