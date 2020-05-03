@@ -212,22 +212,23 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 
 body {
     margin: 0px auto;
-    background-color: #ffeeaf;
-    background-image: url("assets/bkg.jpg");
-    background-repeat: both;
-    max-width: 1100px;
+    background-color: #160a08;
+    max-width: 1200px;
 }
 
+/*
 @media only screen and (max-width: 1100px) {
     body {
         background-color: #000000;
         background-image: none;
     }
 }
+*/
 
 a {
     color: #6b6b6b;
@@ -254,7 +255,9 @@ p {
 }
 
 hr {
-    border-top: 1px solid #efdfb8;
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #160a08, #efdfb8, #160a08);
     margin: 5px 5px;
 }
 
@@ -336,8 +339,8 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .mobile-menu {
-    background-color: #000000;
-    box-shadow: 0px 0px 10px 3px #000000;
+    background-color: #160a08;
+    box-shadow: 0px 0px 10px 3px #160a08;
     border-radius: 10px;
     width: 40px;
     height: 40px;
@@ -401,7 +404,7 @@ input[type=text]:focus, input[type=password]:focus {
 @media only screen and (max-width: 700px) {
     .mobile-menu-content {
         display: block;
-        background-color: #000000;
+        background-color: #160a08;
         position: fixed;
         top: 0;
         right: 0;
@@ -514,10 +517,9 @@ input[type=text]:focus, input[type=password]:focus {
     grid-template-rows: min-content min-content min-content;
     grid-gap: 0px;
     padding: 0px;
-    margin: 20px;
-    background-color: #000000;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px 3px #000000;
+    background-image: url("assets/header.jpg");
+    background-repeat: no-repeat;
+    background-position: center top;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -525,6 +527,25 @@ input[type=text]:focus, input[type=password]:focus {
         margin: 0px;
         border-radius: 0px;
         box-shadow: none;
+        background-size: auto 200px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main-layout {
+        background-size: auto 190px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .main-layout {
+        background-size: auto 140px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .main-layout {
+        background-size: auto 110px;
     }
 }
 
@@ -551,22 +572,22 @@ input[type=text]:focus, input[type=password]:focus {
 }
 
 .main-menu-point {
-    font-size: 28px;
+    font-size: 30px;
     padding: 6px 10px 6px 10px;
     transition: 0.5s;
-    font-family: 'Allura', cursive;
+    font-family: 'Italianno', cursive;
 }
 
 @media only screen and (max-width: 1100px) {
     .main-menu-point {
-        font-size: 26px;
+        font-size: 27px;
         padding: 3px 5px 3px 5px;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .main-menu-point {
-        font-size: 22px;
+        font-size: 24px;
         padding: 3px 5px 3px 5px;
     }
 }
@@ -575,13 +596,13 @@ input[type=text]:focus, input[type=password]:focus {
     cursor: pointer;
     color: #ffffff;
     background-color: #2e2e2e;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .main-menu-active {
     color: #ffffff;
     background-color: #2e2e2e;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .dropdown {
@@ -592,7 +613,7 @@ input[type=text]:focus, input[type=password]:focus {
     display: none;
     position: absolute;
     margin: 0px 0px 0px 5px;
-    background-color: #000000;
+    background-color: #160a08;
     min-width: 100px;
     text-align: left;
     border: 1px solid #efdfb8;
@@ -611,7 +632,7 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 6px;
     border-radius: 5px;
     transition: 0.5s;
-    font-family: 'Allura', cursive;
+    font-family: 'Italianno', cursive;
 }
 
 @media only screen and (max-width: 1100px) {
