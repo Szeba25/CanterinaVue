@@ -1,7 +1,7 @@
 <template>
     <div class="main-layout">
         <div>
-            <div class="main-social-container">
+            <div class="social-container">
                 <a target="_blank" href="https://www.facebook.com/canterinakamarakorus/">
                     <img class="social-media-link" src="@/assets/fb.png">
                 </a>
@@ -9,7 +9,7 @@
                     <img class="social-media-link" src="@/assets/yt.png">
                 </a>
             </div>
-            <div class="main-lang-container">
+            <div class="lang-container">
                 <img class="main-lang-item" src="@/assets/hu.png" @click="changeLanguage('hu')">
                 <img class="main-lang-item" src="@/assets/en.png" @click="changeLanguage('en')">
             </div>
@@ -23,63 +23,63 @@
         </div>
         <div class="main-menu">
             <router-link to="/">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Main') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('Main') }">
                     {{ $t("menu.main") }}
-                </p>
+                </div>
             </router-link>
             <div class="dropdown">
                 <router-link to="/about_choir">
-                    <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('AboutChoir', 'AboutMembers', 'AboutConductors') }">
+                    <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('AboutChoir', 'AboutMembers', 'AboutConductors') }">
                         {{ $t("menu.about.main") }}
-                    </p>
+                    </div>
                 </router-link>
                 <div class="dropdown-content">
                     <router-link to="/about_choir">
-                        <p class="dropdown-menu-point">
+                        <div class="dropdown-menu-item">
                             {{ $t("menu.about.choir") }}
-                        </p>
+                        </div>
                     </router-link>
                     <router-link to="/about_members/1">
-                        <p class="dropdown-menu-point">
+                        <div class="dropdown-menu-item">
                             {{ $t("menu.about.members") }}
-                        </p>
+                        </div>
                     </router-link>
                     <router-link to="/about_conductors/1">
-                        <p class="dropdown-menu-point">
+                        <div class="dropdown-menu-item">
                             {{ $t("menu.about.conductors") }}
-                        </p>
+                        </div>
                     </router-link>
                 </div>
             </div>
             <router-link to="/events">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Events') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('Events') }">
                     {{ $t("menu.events") }}
-                </p>
+                </div>
             </router-link>
             <router-link to="/albums">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Albums') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('Albums') }">
                     {{ $t("menu.albums") }}
-                </p>
+                </div>
             </router-link>
             <router-link to="/gallery">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Gallery') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('Gallery') }">
                     {{ $t("menu.gallery") }}
-                </p>
+                </div>
             </router-link>
             <router-link to="/public">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Public') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('Public') }">
                     {{ $t("menu.public") }}
-                </p>
+                </div>
             </router-link>
             <router-link to="/contact">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('Contact') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('Contact') }">
                     {{ $t("menu.contact") }}
-                </p>
+                </div>
             </router-link>
             <router-link to="/for_members">
-                <p class="main-menu-point" v-bind:class="{ 'main-menu-active': isActive('ForMembers', 'Login') }">
+                <div class="main-menu-item" v-bind:class="{ 'main-menu-active': isActive('ForMembers', 'Login') }">
                     {{ $t("menu.forMembers") }}
-                </p>
+                </div>
             </router-link>
         </div>
         <div v-bind:class="['mobile-menu-' + (mobileMenuVisible ? 'on' : 'off'), 'mobile-menu-content']">
@@ -93,41 +93,67 @@
             <transition name="fade" mode="out-in">
                 <div v-if="!aboutItemsVisible" key="1">
                     <router-link to="/">
-                        <p class="mobile-menu-item">{{ $t("menu.main") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.main") }}
+                        </div>
                     </router-link>
-                    <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.about.main") }}</p>
+                    <div @click="toggleAboutMenu()" class="mobile-menu-item">
+                        {{ $t("menu.about.main") }}
+                    </div>
                     <router-link to="/events">
-                        <p class="mobile-menu-item">{{ $t("menu.events") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.events") }}
+                        </div>
                     </router-link>
                     <router-link to="/albums">
-                        <p class="mobile-menu-item">{{ $t("menu.albums") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.albums") }}
+                        </div>
                     </router-link>
                     <router-link to="/gallery">
-                        <p class="mobile-menu-item">{{ $t("menu.gallery") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.gallery") }}
+                        </div>
                     </router-link>
                     <router-link to="/public">
-                        <p class="mobile-menu-item">{{ $t("menu.public") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.public") }}
+                        </div>
                     </router-link>
                     <router-link to="/contact">
-                        <p class="mobile-menu-item">{{ $t("menu.contact") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.contact") }}
+                        </div>
                     </router-link>
                     <router-link to="/for_members">
-                        <p class="mobile-menu-item">{{ $t("menu.forMembers") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.forMembers") }}
+                        </div>
                     </router-link>
                     <div style="height: 15px;"></div>
-                    <p @click="toggleLanguage()" class="mobile-menu-item">{{ $t("menu.language") }}</p>
+                    <div @click="toggleLanguage()" class="mobile-menu-item">
+                        {{ $t("menu.language") }}
+                    </div>
                 </div>
                 <div v-else key="2">
-                    <p @click="toggleAboutMenu()" class="mobile-menu-item">{{ $t("menu.back") }}</p>
+                    <div @click="toggleAboutMenu()" class="mobile-menu-item">
+                        {{ $t("menu.back") }}
+                    </div>
                     <div style="height: 15px;"></div>
                     <router-link to="/about_choir">
-                        <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.about.choir") }}
+                        </div>
                     </router-link>
                     <router-link to="/about_members">
-                        <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.about.members") }}
+                        </div>
                     </router-link>
                     <router-link to="/about_conductors">
-                        <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
+                        <div class="mobile-menu-item">
+                            {{ $t("menu.about.conductors") }}
+                        </div>
                     </router-link>
                 </div>
             </transition>
@@ -221,15 +247,6 @@ body {
     max-width: 1200px;
 }
 
-/*
-@media only screen and (max-width: 1100px) {
-    body {
-        background-color: #000000;
-        background-image: none;
-    }
-}
-*/
-
 a {
     color: #6b6b6b;
     text-decoration: none;
@@ -314,20 +331,15 @@ input[type=text]:focus, input[type=password]:focus {
     text-align: justify;
 }
 
-.main-social-container {
+.social-container {
     float: left;
     margin: 0px 5px;
-}
-
-@media only screen and (max-width: 700px) {
-    .main-social-container {
-        display: none;
-    }
 }
 
 .fade-enter-active, .fade-leave-active {
     transition: 0.3s;
 }
+
 .fade-enter {
     transform: translateX(80px);
     opacity: 0;
@@ -344,20 +356,10 @@ input[type=text]:focus, input[type=password]:focus {
     border-radius: 10px;
     width: 40px;
     height: 40px;
-    padding: 10px;
     margin: 4px;
+    padding: 10px;
     cursor: pointer;
     display: none;
-}
-
-@media only screen and (max-width: 700px) {
-    .mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 2;
-        display: block;
-    }
 }
 
 .mobile-menu-bar1, .mobile-menu-bar2, .mobile-menu-bar3 {
@@ -401,18 +403,6 @@ input[type=text]:focus, input[type=password]:focus {
     padding: 40px 5px 25px 20px;
 }
 
-@media only screen and (max-width: 700px) {
-    .mobile-menu-content {
-        display: block;
-        background-color: #160a08;
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 1;
-        overflow: auto;
-    }
-}
-
 .social-media-link-mobile {
     margin: 5px 5px 0px 0px;
     width: 50px;
@@ -429,7 +419,9 @@ input[type=text]:focus, input[type=password]:focus {
 
 .mobile-menu-item {
     font-size: 26px;
+    color: #efdfb8;
     padding: 2px 4px 2px 4px;
+    margin: 3px 0px;
     transition: 0.2s;
     font-family: 'Amiri', serif;
 }
@@ -460,14 +452,8 @@ input[type=text]:focus, input[type=password]:focus {
     width: 0;
 }
 
-.main-lang-container {
+.lang-container {
     float: right;
-}
-
-@media only screen and (max-width: 700px) {
-    .main-lang-container {
-        display: none;
-    }
 }
 
 .main-lang-item {
@@ -494,24 +480,6 @@ input[type=text]:focus, input[type=password]:focus {
     margin: auto;
 }
 
-@media only screen and (max-width: 500px) {
-    .main-logo {
-        background-size: 266px 77px;
-        width: 266px;
-        height: 77px;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .main-separator {
-        display: none;
-    }
-
-    .compact-separator {
-        margin: 20px 0px;
-    }
-}
-
 .main-layout {
     display: grid;
     grid-template-rows: min-content min-content min-content;
@@ -520,33 +488,6 @@ input[type=text]:focus, input[type=password]:focus {
     background-image: url("assets/header.jpg");
     background-repeat: no-repeat;
     background-position: center top;
-}
-
-@media only screen and (max-width: 1100px) {
-    .main-layout {
-        margin: 0px;
-        border-radius: 0px;
-        box-shadow: none;
-        background-size: auto 200px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .main-layout {
-        background-size: auto 190px;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .main-layout {
-        background-size: auto 140px;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    .main-layout {
-        background-size: auto 110px;
-    }
 }
 
 .main-menu {
@@ -565,34 +506,17 @@ input[type=text]:focus, input[type=password]:focus {
     margin: auto;
 }
 
-@media only screen and (max-width: 700px) {
-    .main-menu {
-        display: none;
-    }
-}
-
-.main-menu-point {
+.main-menu-item {
     font-size: 30px;
-    padding: 6px 10px 6px 10px;
+    line-height: 1.5;
+    color: #efdfb8;
+    margin: 5px 0px;
+    padding: 6px 18px;
     transition: 0.5s;
     font-family: 'Italianno', cursive;
 }
 
-@media only screen and (max-width: 1100px) {
-    .main-menu-point {
-        font-size: 27px;
-        padding: 3px 5px 3px 5px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    .main-menu-point {
-        font-size: 24px;
-        padding: 3px 5px 3px 5px;
-    }
-}
-
-.main-menu-point:hover {
+.main-menu-item:hover {
     cursor: pointer;
     color: #ffffff;
     background-color: #2e2e2e;
@@ -626,8 +550,10 @@ input[type=text]:focus, input[type=password]:focus {
     display: block;
 }
 
-.dropdown-menu-point {
+.dropdown-menu-item {
     font-size: 26px;
+    color: #efdfb8;
+    line-height: 1.5;
     margin: 0px;
     padding: 6px;
     border-radius: 5px;
@@ -635,13 +561,7 @@ input[type=text]:focus, input[type=password]:focus {
     font-family: 'Italianno', cursive;
 }
 
-@media only screen and (max-width: 1100px) {
-    .dropdown-menu-point {
-        font-size: 22px;
-    }
-}
-
-.dropdown-menu-point:hover {
+.dropdown-menu-item:hover {
     color: #ffffff;
     background-color: #2e2e2e;
 }
@@ -666,7 +586,10 @@ input[type=text]:focus, input[type=password]:focus {
 
 .text-button {
     font-size: 20px;
+    color: #efdfb8;
+    line-height: 1.5;
     padding: 2px 4px 2px 4px;
+    margin: 5px 0px;
     transition: 0.5s;
     font-family: 'Amiri', serif;
 }
@@ -677,4 +600,91 @@ input[type=text]:focus, input[type=password]:focus {
     background-color: #2e2e2e;
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 1100px) {
+    .main-layout {
+        margin: 0px;
+        border-radius: 0px;
+        box-shadow: none;
+        background-size: auto 200px;
+    }
+
+    .main-menu-item {
+        font-size: 27px;
+        padding: 3px 12px;
+    }
+
+    .dropdown-menu-item {
+        font-size: 22px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main-layout {
+        background-size: auto 190px;
+    }
+
+    .main-menu-item {
+        font-size: 24px;
+        padding: 3px 5px 3px 5px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .main-layout {
+        background-size: auto 140px;
+    }
+
+    .main-menu {
+        display: none;
+    }
+
+    .social-container {
+        display: none;
+    }
+
+    .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        display: block;
+    }
+
+    .mobile-menu-content {
+        display: block;
+        background-color: #160a08;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        overflow: auto;
+    }
+
+    .lang-container {
+        display: none;
+    }
+
+    .main-separator {
+        display: none;
+    }
+
+    .compact-separator {
+        margin: 20px 0px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .main-layout {
+        background-size: auto 110px;
+    }
+
+    .main-logo {
+        background-size: 266px 77px;
+        width: 266px;
+        height: 77px;
+    }
+}
+
+
 </style>
