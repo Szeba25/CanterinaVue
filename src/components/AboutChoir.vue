@@ -65,8 +65,8 @@ export default {
 }
 
 .choir-picture {
-    float: left;
-    margin: 15px 25px 10px 0px;
+    float: right;
+    margin: 15px 0px 10px 25px;
     width: 500px;
     height: 375px;
 }

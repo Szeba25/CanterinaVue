@@ -107,9 +107,8 @@ const messages = {
         about: {
             members: "Members",
             conductors: "Conductors",
-            memberList: "Member list",
-            conductorList: "Conductor list",
-            back: "Back"
+            anotherMember: "Another member",
+            anotherConductor: "Another conductor"
         }
     },
     hu: {
@@ -143,9 +142,8 @@ const messages = {
         about: {
             members: "Tagok",
             conductors: "Karnagyok",
-            memberList: "Tagok listája",
-            conductorList: "Karnagyok listája",
-            back: "Vissza"
+            anotherMember: "Másik tag",
+            anotherConductor: "Másik karnagy"
         }
     }
 };

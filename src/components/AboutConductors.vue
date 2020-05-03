@@ -1,35 +1,52 @@
 <template>
     <div class="layout">
-        <div class="conductor-list">
-            <h2 class="conductor-title">{{ $t("about.conductors") }}</h2>
-            <div v-if="loaded">
-                <p class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(conductor, index) in conductors" :key="conductor.index" @click="setSelected(index)">
-                    {{ conductor.name }}
-                </p>
-            </div>
-        </div>
-        <transition name="listfade" mode="out-in" key="1">
-            <div v-if="compactListOpen" class="compact-conductor-list">
-                <p class="text-button larger-font" @click="toggleCompactList()">{{$t('about.back')}}</p>
-                <hr style="margin: 0px 0px 15px 0px">
-                <div v-bind:class="'compact-conductor-list-' + (compactListOpen ? 'on' : 'off')">
+        <div class="conductor-view">
+            <div class="conductor-list">
+                <h2 class="conductor-title">{{ $t("about.conductors") }}</h2>
+                <div v-if="loaded">
                     <p class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(conductor, index) in conductors" :key="conductor.index" @click="setSelected(index)">
                         {{ conductor.name }}
                     </p>
                 </div>
             </div>
-            <div v-else key="2">
-                <div class="compact-conductor-list">
-                    <p class="text-button larger-font" @click="toggleCompactList()">{{$t('about.conductorList')}}</p>
-                    <hr style="margin: 0px 0px 15px 0px">
-                </div>
-                <div v-if="loaded">
-                    <h2 class="conductor-name">{{ conductors[selected].name }}</h2>
+            <div class="conductor-details">
+                <div v-if="loaded && selected !== -1">
                     <img class="styled-picture conductor-portrait" v-bind:src="conductors[selected].portrait">
+                    <h2 class="conductor-name">{{ conductors[selected].name }}</h2>
                     <div v-html="conductors[selected].bio[$i18n.locale]"></div>
                 </div>
             </div>
-        </transition>
+        </div>
+        <div class="compact-conductor-view">
+            <transition name="listfade" mode="out-in" key="1">
+                <div v-if="compactListOpen" class="compact-conductor-list">
+                    <div v-bind:class="'compact-conductor-list-' + (compactListOpen ? 'on' : 'off')">
+                        <h2>{{$t('about.conductors')}}</h2>
+                        <p class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(conductor, index) in conductors" :key="conductor.index" @click="setSelected(index)">
+                            {{ conductor.name }}
+                        </p>
+                    </div>
+                </div>
+                <div v-else key="2">
+                    <div class="compact-conductor-list">
+                        <p class="text-button larger-font" @click="toggleCompactList()">{{$t('about.anotherConductor')}}</p>
+                        <hr style="margin: 10px 0px 25px 0px">
+                    </div>
+                    <div v-if="loaded && selected !== -1">
+                        <div class="conductor-details-compact">
+                            <img class="styled-picture conductor-portrait" v-bind:src="conductors[selected].portrait">
+                            <h2 class="conductor-name">{{ conductors[selected].name }}</h2>
+                            <div v-html="conductors[selected].bio[$i18n.locale]"></div>
+                        </div>
+                        <div class="conductor-details-tiny">
+                            <h2 class="conductor-name">{{ conductors[selected].name }}</h2>
+                            <div v-html="conductors[selected].bio[$i18n.locale]"></div>
+                            <img class="styled-picture conductor-portrait" v-bind:src="conductors[selected].portrait">
+                        </div>
+                    </div>
+                </div>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -53,6 +70,7 @@ export default {
             if (to.params.id !== undefined) {
                 this.selected = parseInt(to.params.id) - 1;
             } else {
+                this.compactListOpen = true;
                 this.selected = -1;
             }
         }
@@ -71,11 +89,11 @@ export default {
 
     data() {
         return {
-            compactListOpen: false,
+            compactListOpen: true,
             selected: -1,
             loaded: false,
             conductors: [
-                { name: "Tészta György", portrait: "portrait_1.jpg", bio: { en: "<p>Conductor 1 bio</p>", hu: "<p>Tag 1 leírás</p>" } },
+                { name: "Tészta Gyula", portrait: "portrait_1.jpg", bio: { en: "<p>Conductor 1 bio</p>", hu: "<p>Tag 1 leírás</p>" } },
                 { name: "Kavics Ödön", portrait: "portrait_2.jpg", bio: { en: "<p>Conductor 2 bio</p><p>Some other paragraph</p><h4>Some large text</h4>", hu: "<p>Tag 2 leírás</p>" } },
             ]
         }
@@ -86,28 +104,44 @@ export default {
 <style scoped>
 .layout {
     min-height: 420px;
-    display: grid;
-    grid-template-columns: 200px auto;
-    grid-gap: 15px;
+    display: block;
     margin: 25px;
 }
 
 @media only screen and (max-width: 700px) {
     .layout {
-        display: block;
         margin: 5px;
     }
 }
 
-.conductor-list {
-    border-right: 2px solid #efdfb8;
-    padding-right: 5px;
+.conductor-view {
+    display: grid;
+    grid-template-columns: 200px auto;
     min-height: 80vh;
 }
 
 @media only screen and (max-width: 700px) {
-    .conductor-list {
+    .conductor-view {
         display: none;
+    }
+}
+
+.conductor-list {
+    padding-right: 5px;
+    border-right: 2px solid #efdfb8;
+}
+
+.conductor-details {
+    padding-left: 15px;
+}
+
+.compact-conductor-view {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .compact-conductor-view {
+        display: block;
     }
 }
 
@@ -132,13 +166,41 @@ export default {
     height: auto;
 }
 
+.conductor-details-compact {
+    display: none;
+}
+
+.conductor-details-tiny {
+    display: none;
+}
+
+@media only screen and (max-width: 700px) {
+    .conductor-details-compact {
+        display: block;
+    }
+
+    .conductor-details-tiny {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .conductor-details-compact {
+        display: none;
+    }
+
+    .conductor-details-tiny {
+        display: block;
+    }
+}
+
 .conductor-portrait {
     float: right;
     width: 300px;
     height: auto;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
     .conductor-portrait {
         width: 225px;
         height: auto;
@@ -156,7 +218,7 @@ export default {
     .conductor-portrait {
         width: 100%;
         height: auto;
-        margin-bottom: 25px;
+        margin-top: 25px;
     }
 }
 

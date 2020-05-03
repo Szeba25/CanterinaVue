@@ -123,17 +123,17 @@
                     <router-link to="/about_choir">
                         <p class="mobile-menu-item">{{ $t("menu.about.choir") }}</p>
                     </router-link>
-                    <router-link to="/about_members/1">
+                    <router-link to="/about_members">
                         <p class="mobile-menu-item">{{ $t("menu.about.members") }}</p>
                     </router-link>
-                    <router-link to="/about_conductors/1">
+                    <router-link to="/about_conductors">
                         <p class="mobile-menu-item">{{ $t("menu.about.conductors") }}</p>
                     </router-link>
                 </div>
             </transition>
         </div>
         <div>
-            <hr>
+            <hr class="compact-separator">
             <router-view></router-view>
         </div>
     </div>
@@ -502,6 +502,10 @@ input[type=text]:focus, input[type=password]:focus {
 @media only screen and (max-width: 700px) {
     .main-separator {
         display: none;
+    }
+
+    .compact-separator {
+        margin: 20px 0px;
     }
 }
 
