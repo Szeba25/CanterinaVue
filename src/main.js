@@ -92,7 +92,7 @@ const messages = {
             language: "Váltás magyarra"
         },
         main: {
-            moreNews: "More news"
+            moreEvents: "More events"
         },
         login: {
             title: "Welcome!",
@@ -131,7 +131,7 @@ const messages = {
             language: "Switch to english"
         },
         main: {
-            moreNews: "További hírek"
+            moreEvents: "További események"
         },
         login: {
             title: "Üdvözöljük!",

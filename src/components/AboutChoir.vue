@@ -84,16 +84,14 @@ export default {
         width: 400px;
         height: 300px;
     }
-}
 
-@media only screen and (max-width: 700px) {
     .layout {
         margin: 10px;
     }
     
     .choir-picture {
         float: none;
-        margin: 10px 0px;
+        margin: 0px 0px 10px 0px;
         width: 100%;
         height: auto;
         max-height: 300px;

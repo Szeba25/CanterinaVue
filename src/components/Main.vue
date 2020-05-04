@@ -4,12 +4,16 @@
             <img class="styled-picture main-picture" v-bind:src="mainPicture">
         </div>
         <div class="bottom-container">
-            <div class="news" v-for="item in news" :key="item.index">
-                <img class="styled-picture news-picture" src="event.jpg">
-                <p class="news-txt">{{ item.text[$i18n.locale] }}</p>
+            <div class="event" v-for="(event, index) in events" :key="index">
+                <img class="event-picture" v-bind:src="event.picture">
+                <div class="event-bottom">
+                    <p class="event-date">{{ event.date }}</p>
+                    <p class="event-title">{{ event.title[$i18n.locale] }}</p>
+                    <p class="event-content" v-html="event.content[$i18n.locale]"></p>
+                </div>
             </div>
         </div>
-        <input class="more-news-button" type="button" v-bind:value="$t('main.moreNews')">
+        <input class="more-events-button" type="button" v-bind:value="$t('main.moreEvents')">
     </div>
 </template>
 
@@ -20,10 +24,10 @@ export default {
     data() {
         return {
             mainPicture: "main.jpg",
-            news: [
-                { text: { en: "News item 1", hu: "Új hír 1" }, src: "", link: "" },
-                { text: { en: "News item 2", hu: "Új hír 2" }, src: "", link: "" },
-                { text: { en: "News item 3", hu: "Új hír 3" }, src: "", link: "" },
+            events: [
+                { id: 5, picture: "choir.jpg", date: "2020. 04. 29.", title: {en: "Event 5 with long long long long long title!", hu: "5. Esemény"}, content: {en: "<p>Event description asd wqd qw qwd qd q</p>", hu: "<p>Esemény leírás</p>"} },
+                { id: 4, picture: "example.jpg", date: "2020. 04. 21.", title: {en: "Event 4", hu: "4. Esemény"}, content: {en: "<p>Event description asd wqd q221313w qwd qd q long long long long long long long long long long long long long long long long long long long long long lon2 12 d kdsa kaskd asdk ff xxxx</p>", hu: "<p>Esemény leírás</p>"} },
+                { id: 3, picture: "portrait_2.jpg", date: "2020. 04. 11.", title: {en: "Event 3", hu: "3. Esemény"}, content: {en: "<p>Event description asd wqd qw qasdadwd qd q</p>", hu: "<p>Esemény leírás</p>"} }
             ]
         }
     }
@@ -45,46 +49,58 @@ export default {
 .bottom-container {
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-gap: 5px;
+    grid-gap: 15px;
 }
 
-.title {
-    color: #efdfb8;
-    margin: 5px 0px 10px 0px;
-}
-
-.news {
-    text-align: center;
+.event {
+    width: 322px;
     cursor: pointer;
+    margin: 0px auto;
 }
 
-.news:hover .news-txt {
-    color: #efdfb8;
+.event-title {
+    font-weight: bold;
+    font-size: 22px;
 }
 
-.news-picture {
-    margin: auto;
-    border: 2px solid #efdfb8;
-    width: 298px;
-    height: 168px;
-}
-
-.news-txt {
-    margin: 0px 0px 10px 0px;
+.event-date {
     color: #6b6b6b;
-    transition: 0.3s;
+    font-style: italic;
+}
+
+.event-content {
+    margin: 0px auto;
+    text-align: justify;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.event-picture {
+    margin: auto;
+    border: 1px solid #efdfb8;
+    border-radius: 10px;
+    width: 320px;
+    height: 240px;
+    object-fit: cover;
+}
+
+.event-bottom {
+    margin: 0px auto;
+    width: 290px;
 }
 
 .main-picture {
     width: 100%;
 }
 
-.more-news-button {
+.more-events-button {
     margin: auto;
     width: 200px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1100px) {
     .bottom-container {
         margin: 0px auto;
         grid-template-columns: min-content min-content;
@@ -92,11 +108,11 @@ export default {
     }
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 800px) {
     .bottom-container {
         margin: 0px auto;
         grid-template-columns: min-content;
-        grid-gap: 10px;
+        grid-gap: 30px;
     }
 
     .main-picture {

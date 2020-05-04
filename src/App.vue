@@ -621,17 +621,6 @@ input[type=text]:focus, input[type=password]:focus {
 
 @media only screen and (max-width: 800px) {
     .main-layout {
-        background-size: auto 190px;
-    }
-
-    .main-menu-item {
-        font-size: 24px;
-        padding: 3px 5px 3px 5px;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .main-layout {
         background-size: auto 140px;
     }
 
