@@ -12,6 +12,7 @@ import Events from "./components/Events.vue";
 import Event from "./components/Event.vue";
 import Albums from "./components/Albums.vue";
 import Gallery from "./components/Gallery.vue";
+import GalleryFolder from "./components/GalleryFolder.vue";
 import Public from "./components/Public.vue";
 import Contact from "./components/Contact.vue";
 import ForMembers from "./components/ForMembers.vue";
@@ -32,6 +33,7 @@ const routes = [
     { name: "Event", path: "/events/:id(\\d+)", components: { default: Event} },
     { name: "Albums", path: "/albums", components: { default: Albums } },
     { name: "Gallery", path: "/gallery", components: { default: Gallery } },
+    { name: "GalleryFolder", path: "/gallery/:id(\\d+)", components: { default: GalleryFolder } },
     { name: "Public", path: "/public", components: { default: Public } },
     { name: "Contact", path: "/contact", components: { default: Contact } },
     { name: "ForMembers", path: "/for_members", components: {default: ForMembers} },
@@ -115,6 +117,10 @@ const messages = {
         },
         events: {
             back: "Back to all events"
+        },
+        gallery: {
+            choose: "Choose album",
+            back: "Back to albums"
         }
     },
     hu: {
@@ -157,6 +163,10 @@ const messages = {
         },
         events: {
             back: "Vissza az összes eseményhez"
+        },
+        gallery: {
+            choose: "Válassz albumot",
+            back: "Vissza az albumokhoz"
         }
     }
 };
