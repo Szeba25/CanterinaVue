@@ -250,13 +250,22 @@ export default {
 }
 
 @media only screen and (max-width: 500px) {
+    .layout {
+        margin: 20px;
+    }
+
     .person-portrait {
+        float: none;
         width: 175px;
         height: auto;
     }
 }
 
 @media only screen and (max-width: 420px) {
+    .layout {
+        margin: 30px;
+    }
+
     .compact-person-details {
         display: none;
     }

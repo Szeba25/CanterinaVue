@@ -248,15 +248,16 @@ body {
 }
 
 a {
-    color: #6b6b6b;
+    font-family: 'Amiri', serif;
+    color: orangered;
     text-decoration: none;
 }
 a:visited {
-    color: #6b6b6b;
+    color: orange;
     text-decoration: none;
 }
 
-a, p, h1, h2, h3, h4, figcaption {
+p, li, h1, h2, h3, h4, figcaption {
     font-family: 'Amiri', serif;
     color: #efdfb8;
 }
@@ -269,6 +270,11 @@ p {
     font-size: 18px;
     line-height: 1.5;
     margin: 5px 0px;
+}
+
+li {
+    font-size: 20px;
+    line-height: 1.5;
 }
 
 hr {
