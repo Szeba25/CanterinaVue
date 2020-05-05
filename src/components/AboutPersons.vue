@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="person-details">
-                <div v-if="loaded && selected !== -1">
+                <div v-if="loaded && selected !== undefined">
                     <img class="styled-picture person-portrait" v-bind:src="persons[selected].portrait">
                     <h2 class="person-name">{{ persons[selected].name }}</h2>
                     <div v-html="persons[selected].bio[$i18n.locale]"></div>
@@ -22,7 +22,7 @@
                 <div v-if="compactListOpen" class="compact-person-list">
                     <div v-bind:class="'compact-person-list-' + (compactListOpen ? 'on' : 'off')">
                         <h2 v-if="type !== false">{{$t("about." + type + ".type")}}</h2>
-                        <p class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(person, index) in persons" :key="person.index" @click="setSelected(index)">
+                        <p class="text-button" v-bind:class="{ 'text-button-active': key === selected }" v-for="(person, key) in persons" :key="key" @click="setSelected(key)">
                             {{ person.name }}
                         </p>
                     </div>
@@ -32,7 +32,7 @@
                         <p v-if="type !== false" class="text-button larger-font" @click="toggleCompactList()">{{$t("about." + type + ".another")}}</p>
                         <hr style="margin: 10px 0px 25px 0px">
                     </div>
-                    <div v-if="loaded && selected !== -1">
+                    <div v-if="loaded && selected !== undefined">
                         <div class="compact-person-details">
                             <img class="styled-picture person-portrait" v-bind:src="persons[selected].portrait">
                             <h2 class="person-name">{{ persons[selected].name }}</h2>
@@ -57,7 +57,7 @@ export default {
     methods: {
         setSelected(id) {
             this.compactListOpen = false;
-            this.$router.push("/about/" + this.type + "/" + (id + 1)).catch(() => {});
+            this.$router.push("/about/" + this.type + "/" + id).catch(() => {});
         },
 
         toggleCompactList() {
@@ -66,17 +66,17 @@ export default {
 
         addPersons() {
             if (this.type === "conductors") {
-                this.persons = [
-                    { name: "Tészta Gyula", portrait: "portrait_1.jpg", bio: { en: "<p>Person 1 bio</p>", hu: "<p>Tag 1 leírás</p>" } },
-                    { name: "Kavics Ödön", portrait: "portrait_2.jpg", bio: { en: "<p>Person 2 bio</p><p>Some other paragraph</p><h4>Some large text</h4>", hu: "<p>Tag 2 leírás</p>" } },
-                ];
+                this.persons = {
+                    "2": { id: "2", name: "Tészta Gyula", portrait: "portrait_1.jpg", bio: { en: "<p>Person 1 bio</p>", hu: "<p>Tag 1 leírás</p>" } },
+                    "5": { id: "5", name: "Kavics Ödön", portrait: "portrait_2.jpg", bio: { en: "<p>Person 2 bio</p><p>Some other paragraph</p><h4>Some large text</h4>", hu: "<p>Tag 2 leírás</p>" } },
+                };
             } else {
-                this.persons = [
-                    { name: "Tészta Gyuláné", portrait: "portrait_1.jpg", bio: { en: "<p>Person 1 bio</p>", hu: "<p>Tag 1 leírás</p>" } },
-                    { name: "Kavics Ödönné", portrait: "portrait_2.jpg", bio: { en: "<p>Person 2 bio</p><p>Some other paragraph</p><h4>Some large text</h4>", hu: "<p>Tag 2 leírás</p>" } },
-                    { name: "Kocka Hilda", portrait: "portrait_3.jpg", bio: { en: "<p>Person 3 bio</p>", hu: "<p>Tag 3 leírás</p>" } },
-                    { name: "Pöttyös Valéria", portrait: "portrait_4.jpg", bio: { en: "<p>Person 4 bio</p>", hu: "<p>Tag 4 leírás</p>" } }
-                ];
+                this.persons = {
+                    "1": { id: "1", name: "Tészta Gyuláné", portrait: "portrait_1.jpg", bio: { en: "<p>Person 1 bio</p>", hu: "<p>Tag 1 leírás</p>" } },
+                    "5": { id: "5", name: "Kavics Ödönné", portrait: "portrait_2.jpg", bio: { en: "<p>Person 2 bio</p><p>Some other paragraph</p><h4>Some large text</h4>", hu: "<p>Tag 2 leírás</p>" } },
+                    "9": { id: "9", name: "Kocka Hilda", portrait: "portrait_3.jpg", bio: { en: "<p>Person 3 bio</p>", hu: "<p>Tag 3 leírás</p>" } },
+                    "17": { id: "17", name: "Pöttyös Valéria", portrait: "portrait_4.jpg", bio: { en: "<p>Person 4 bio</p>", hu: "<p>Tag 4 leírás</p>" } }
+                };
             }
         }
     },
@@ -90,38 +90,29 @@ export default {
                 this.persons = [];
                 setTimeout(() => {
                     this.addPersons();
-                    if (this.selected < 0 || this.selected > this.persons.length - 1) {
-                        this.selected = -1;
-                    }
                     this.loaded = true;
                 }, 400);
             }
 
             // Handle id change
             if (to.params.id !== undefined) {
-                this.selected = parseInt(to.params.id) - 1;
-                if (this.loaded && (this.selected < 0 || this.selected > this.persons.length - 1)) {
-                    this.selected = -1;
-                }
+                this.selected = to.params.id;
             } else {
                 this.compactListOpen = true;
-                this.selected = -1;
+                this.selected = undefined;
             }
         }
     },
 
     mounted() {
         if (this.$route.params.id !== undefined) {
-            this.selected = parseInt(this.$route.params.id) - 1;
+            this.selected = this.$route.params.id;
         } else {
-            this.selected = -1;
+            this.selected = undefined;
         }
         this.type = this.$route.params.type;
         setTimeout(() => {
             this.addPersons();
-            if (this.selected < 0 || this.selected > this.persons.length - 1) {
-                this.selected = -1;
-            }
             this.loaded = true;
         }, 400);
     },
@@ -130,9 +121,9 @@ export default {
         return {
             type: false,
             compactListOpen: true,
-            selected: -1,
+            selected: undefined,
             loaded: false,
-            persons: []
+            persons: {}
         }
     }
 }
