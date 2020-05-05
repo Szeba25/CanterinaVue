@@ -1,9 +1,9 @@
 <template>
     <div class="layout">
-        <div class="top-container">
+        <div v-if="loaded" class="top-container">
             <img class="styled-picture main-picture" v-bind:src="mainPicture">
         </div>
-        <div class="bottom-container">
+        <div v-if="loaded" class="bottom-container">
             <div class="event" v-for="(event, index) in events" :key="index">
                 <img class="event-picture" v-bind:src="event.picture">
                 <div class="event-bottom">
@@ -21,14 +21,29 @@
 export default {
     name: "Main",
 
-    data() {
-        return {
-            mainPicture: "main.jpg",
-            events: [
+    methods: {
+        load() {
+            this.loaded = true;
+            this.mainPicture = "main.jpg";
+            this.events = [
                 { id: "5", picture: "choir.jpg", date: "2020. 04. 29.", title: {en: "Event 5 with long long long long long title!", hu: "5. Esemény"}, content: {en: "<p>Event description asd wqd qw qwd qd q</p>", hu: "<p>Esemény leírás</p>"} },
                 { id: "4", picture: "example.jpg", date: "2020. 04. 21.", title: {en: "Event 4", hu: "4. Esemény"}, content: {en: "<p>Event description asd wqd q221313w qwd qd q long long long long long long long long long long long long long long long long long long long long long lon2 12 d kdsa kaskd asdk ff xxxx</p>", hu: "<p>Esemény leírás</p>"} },
                 { id: "3", picture: "portrait_2.jpg", date: "2020. 04. 11.", title: {en: "Event 3", hu: "3. Esemény"}, content: {en: "<p>Event description asd wqd qw qasdadwd qd q</p>", hu: "<p>Esemény leírás</p>"} }
             ]
+        }
+    },
+
+    mounted() {
+        setTimeout(() => {
+            this.load();
+        }, 100);
+    },
+
+    data() {
+        return {
+            loaded: false,
+            mainPicture: "",
+            events: []
         }
     }
 }

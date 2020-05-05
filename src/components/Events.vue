@@ -48,7 +48,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.addEvents();
-        }, 400);
+        }, 100);
     },
 
     data() {

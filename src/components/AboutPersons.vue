@@ -93,7 +93,7 @@ export default {
                 setTimeout(() => {
                     this.addPersons();
                     this.loaded = true;
-                }, 400);
+                }, 100);
                 // END
             }
 
@@ -119,7 +119,7 @@ export default {
         setTimeout(() => {
             this.addPersons();
             this.loaded = true;
-        }, 400);
+        }, 100);
         // END
     },
 
