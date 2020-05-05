@@ -4,10 +4,8 @@
             <div class="main-event-container" v-if="events.length > 0">
                 <img class="main-event-picture styled-picture" v-bind:src="events[0].picture">
                 <div>
-                    <p>
-                        {{ events[0].title[$i18n.locale] }}
-                        {{ events[0].date }}
-                    </p>
+                    <p class="main-event-title">{{ events[0].title[$i18n.locale] }}</p>
+                    <p class="main-event-date">{{ events[0].date }}</p>
                     <p class="justified-text" v-html="events[0].content[$i18n.locale]"></p>
                 </div>
             </div>
@@ -31,15 +29,27 @@
 export default {
     name: "Events",
 
+    methods: {
+        addEvents() {
+            this.events = [
+                { id: "5", picture: "portrait_1.jpg", date: "2020. 04. 29.", title: {en: "Event 5", hu: "5. Esemény"}, content: {en: "<p>Etiam congue accumsan risus, ac posuere massa efficitur a. Sed eu tristique neque, vel elementum mi. Nunc magna libero, tristique sed elementum quis, lacinia id arcu. Phasellus dapibus ac est at posuere. Fusce sollicitudin eros non commodo rhoncus. In eget ligula aliquam, rhoncus enim at, lacinia odio. Aenean a tortor vitae tellus faucibus sollicitudin. In pellentesque pellentesque risus sit amet semper. Donec vel massa id elit consequat maximus ut at neque. Ut et fermentum enim. Cras eu orci pretium, interdum nunc sed, accumsan nulla. Nullam vel efficitur dolor. Vestibulum feugiat, enim sed volutpat faucibus, nulla libero tempor diam, sed sollicitudin nisi enim eget odio. Integer venenatis leo quis justo ullamcorper scelerisque elementum a tortor. Curabitur tellus dolor, venenatis id malesuada vitae, tincidunt sed metus.</p>", hu: "<p>Esemény leírás lkasdj asd kq klw qwlkd jqw qwdk lkklqdw j d kwqj dkqwj</p>"} },
+                { id: "4", picture: "choir.jpg", date: "2020. 04. 21.", title: {en: "Event 4", hu: "4. Esemény"}, content: {en: "<p>Event description qd qdq2 1 w qw as </p>", hu: "<p>Esemény leírás</p>"} },
+                { id: "3", picture: "example.jpg", date: "2020. 04. 11.", title: {en: "Event 3", hu: "3. Esemény"}, content: {en: "<p>Event description long long long long long long long long long long asd long long long long long long asd long long long long</p>", hu: "<p>Esemény leírás</p>"} },
+                { id: "2", picture: "portrait_3.jpg", date: "2020. 04. 09.", title: {en: "Event 2", hu: "2. Esemény"}, content: {en: "<p>Event description asd a kajsd jqwd jkqw jkqwd jkqw jqwd jkqd jqwj qjwhd jqwhdjhwqdjwqhd qwjdhwq jd qwjd hjqwjh jq q qjdh jwqdjwqjhdjqwd qwjd jqd qdjwq jqjdhqjdh dhjjhdhjwq h</p>", hu: "<p>Esemény leírás</p>"} },
+                { id: "1", picture: "choir.jpg", date: "2020. 03. 04.", title: {en: "Event 1", hu: "1. Esemény"}, content: {en: "<p>Event description asd as</p>", hu: "<p>Esemény leírás</p>"} }
+            ]
+        }
+    },
+
+    mounted() {
+        setTimeout(() => {
+            this.addEvents();
+        }, 400);
+    },
+
     data() {
         return {
-            events: [
-                { id: 5, picture: "portrait_1.jpg", date: "2020. 04. 29.", title: {en: "Event 5", hu: "5. Esemény"}, content: {en: "<p>Etiam congue accumsan risus, ac posuere massa efficitur a. Sed eu tristique neque, vel elementum mi. Nunc magna libero, tristique sed elementum quis, lacinia id arcu. Phasellus dapibus ac est at posuere. Fusce sollicitudin eros non commodo rhoncus. In eget ligula aliquam, rhoncus enim at, lacinia odio. Aenean a tortor vitae tellus faucibus sollicitudin. In pellentesque pellentesque risus sit amet semper. Donec vel massa id elit consequat maximus ut at neque. Ut et fermentum enim. Cras eu orci pretium, interdum nunc sed, accumsan nulla. Nullam vel efficitur dolor. Vestibulum feugiat, enim sed volutpat faucibus, nulla libero tempor diam, sed sollicitudin nisi enim eget odio. Integer venenatis leo quis justo ullamcorper scelerisque elementum a tortor. Curabitur tellus dolor, venenatis id malesuada vitae, tincidunt sed metus.</p>", hu: "<p>Esemény leírás lkasdj asd kq klw qwlkd jqw qwdk lkklqdw j d kwqj dkqwj</p>"} },
-                { id: 4, picture: "choir.jpg", date: "2020. 04. 21.", title: {en: "Event 4", hu: "4. Esemény"}, content: {en: "<p>Event description qd qdq2 1 w qw as </p>", hu: "<p>Esemény leírás</p>"} },
-                { id: 3, picture: "example.jpg", date: "2020. 04. 11.", title: {en: "Event 3", hu: "3. Esemény"}, content: {en: "<p>Event description long long long long long long long long long long asd long long long long long long asd long long long long</p>", hu: "<p>Esemény leírás</p>"} },
-                { id: 2, picture: "portrait_3.jpg", date: "2020. 04. 09.", title: {en: "Event 2", hu: "2. Esemény"}, content: {en: "<p>Event description asd a kajsd jqwd jkqw jkqwd jkqw jqwd jkqd jqwj qjwhd jqwhdjhwqdjwqhd qwjdhwq jd qwjd hjqwjh jq q qjdh jwqdjwqjhdjqwd qwjd jqd qdjwq jqjdhqjdh dhjjhdhjwq h</p>", hu: "<p>Esemény leírás</p>"} },
-                { id: 1, picture: "choir.jpg", date: "2020. 03. 04.", title: {en: "Event 1", hu: "1. Esemény"}, content: {en: "<p>Event description asd as</p>", hu: "<p>Esemény leírás</p>"} }
-            ]
+            events: []
         }
     }
 }
@@ -68,6 +78,16 @@ export default {
     float: right;
     margin: 0px 0px 10px 25px;
     max-width: 500px;
+}
+
+.main-event-title {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.main-event-date {
+    color: #6b6b6b;
+    font-style: italic;
 }
 
 .older-events {

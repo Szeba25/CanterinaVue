@@ -9,6 +9,7 @@ import Main from "./components/Main.vue";
 import AboutChoir from "./components/AboutChoir.vue";
 import AboutPersons from "./components/AboutPersons.vue";
 import Events from "./components/Events.vue";
+import Event from "./components/Event.vue";
 import Albums from "./components/Albums.vue";
 import Gallery from "./components/Gallery.vue";
 import Public from "./components/Public.vue";
@@ -28,6 +29,7 @@ const routes = [
     { name: "AboutPersonsMain", path: "/about/:type(members|conductors)", components: { default: AboutPersons } },
     { name: "AboutPersons", path: "/about/:type(members|conductors)/:id(\\d+)", components: { default: AboutPersons } },
     { name: "Events", path: "/events", components: { default: Events } },
+    { name: "Event", path: "/events/:id(\\d+)", components: { default: Event} },
     { name: "Albums", path: "/albums", components: { default: Albums } },
     { name: "Gallery", path: "/gallery", components: { default: Gallery } },
     { name: "Public", path: "/public", components: { default: Public } },
@@ -110,6 +112,9 @@ const messages = {
                 type: "Conductors",
                 another: "Another conductor"
             }
+        },
+        events: {
+            back: "Back to all events"
         }
     },
     hu: {
@@ -149,6 +154,9 @@ const messages = {
                 type: "Karnagyok",
                 another: "Másik karnagy"
             }
+        },
+        events: {
+            back: "Vissza az összes eseményhez"
         }
     }
 };

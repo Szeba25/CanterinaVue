@@ -4,9 +4,9 @@
             <div class="person-list">
                 <h2 v-if="type !== false" class="person-title">{{ $t("about." + type + ".type") }}</h2>
                 <div v-if="loaded">
-                    <p class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(person, index) in persons" :key="person.index" @click="setSelected(index)">
+                    <div class="text-button" v-bind:class="{ 'text-button-active': index === selected }" v-for="(person, index) in persons" :key="person.index" @click="setSelected(index)">
                         {{ person.name }}
-                    </p>
+                    </div>
                 </div>
             </div>
             <div class="person-details">
@@ -22,14 +22,14 @@
                 <div v-if="compactListOpen" class="compact-person-list">
                     <div v-bind:class="'compact-person-list-' + (compactListOpen ? 'on' : 'off')">
                         <h2 v-if="type !== false">{{$t("about." + type + ".type")}}</h2>
-                        <p class="text-button" v-bind:class="{ 'text-button-active': key === selected }" v-for="(person, key) in persons" :key="key" @click="setSelected(key)">
+                        <div class="text-button" v-bind:class="{ 'text-button-active': key === selected }" v-for="(person, key) in persons" :key="key" @click="setSelected(key)">
                             {{ person.name }}
-                        </p>
+                        </div>
                     </div>
                 </div>
                 <div v-else key="2">
                     <div class="compact-person-list">
-                        <p v-if="type !== false" class="text-button larger-font" @click="toggleCompactList()">{{$t("about." + type + ".another")}}</p>
+                        <div v-if="type !== false" class="text-button larger-font" @click="toggleCompactList()">{{$t("about." + type + ".another")}}</div>
                         <hr style="margin: 10px 0px 25px 0px">
                     </div>
                     <div v-if="loaded && selected !== undefined">
@@ -88,10 +88,13 @@ export default {
                 this.type = to.params.type;
                 this.loaded = false;
                 this.persons = [];
+
+                // Mock async loading
                 setTimeout(() => {
                     this.addPersons();
                     this.loaded = true;
                 }, 400);
+                // END
             }
 
             // Handle id change
@@ -111,10 +114,13 @@ export default {
             this.selected = undefined;
         }
         this.type = this.$route.params.type;
+
+        // Mock async loading
         setTimeout(() => {
             this.addPersons();
             this.loaded = true;
         }, 400);
+        // END
     },
 
     data() {
