@@ -12,7 +12,7 @@
         </div>
         <hr class="main-separator">
         <div class="older-events">
-            <div class="older-event" v-for="(event, index) in events.slice(1)" :key="index">
+            <div @click="navigateTo(event.id)" class="older-event" v-for="(event, index) in events.slice(1)" :key="index">
                 <img class="older-event-picture" v-bind:src="event.picture">
                 <hr class="older-event-separator">
                 <div class="older-event-bottom">
@@ -38,6 +38,10 @@ export default {
                 { id: "2", picture: "portrait_3.jpg", date: "2020. 04. 09.", title: {en: "Event 2", hu: "2. Esemény"}, content: {en: "<p>Event description asd a kajsd jqwd jkqw jkqwd jkqw jqwd jkqd jqwj qjwhd jqwhdjhwqdjwqhd qwjdhwq jd qwjd hjqwjh jq q qjdh jwqdjwqjhdjqwd qwjd jqd qdjwq jqjdhqjdh dhjjhdhjwq h</p>", hu: "<p>Esemény leírás</p>"} },
                 { id: "1", picture: "choir.jpg", date: "2020. 03. 04.", title: {en: "Event 1", hu: "1. Esemény"}, content: {en: "<p>Event description asd as</p>", hu: "<p>Esemény leírás</p>"} }
             ]
+        },
+
+        navigateTo(id) {
+            this.$router.push("events/" + id);
         }
     },
 
