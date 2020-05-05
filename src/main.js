@@ -48,6 +48,10 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+
+    // Gallery bug: If back button is pressed on open gallery, overflow is set to hidden...
+    document.body.style.overflow = 'auto';
+
     if (to.name === "ForMembers") {
         Axios.get("api/userinfo.php")
             .then((response) => {
